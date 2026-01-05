@@ -3,6 +3,7 @@ import { Hero } from "../componentes/secciones/Hero"
 import { Educacion } from "../componentes/secciones/Educacion"
 import { Footer } from "../componentes/layout/Footer"
 import { Experiencia } from "../componentes/secciones/Experiencia"
+import { SectionTransition } from "../componentes/layout/SectionTransition"
 
 export function Home() {
   return (
@@ -10,12 +11,23 @@ export function Home() {
       <Navbar />
 
       <main className="flex-1 overflow-y-auto scroll-smooth">
+        
+        {/* El Hero suele ir sin transición externa porque carga al inicio */}
         <Hero />
-        <Educacion />
-        <Experiencia />
+        
+        {/* Envolvemos Educación */}
+        <SectionTransition>
+          <Educacion />
+        </SectionTransition>
+        
+        {/* Envolvemos Experiencia */}
+        <SectionTransition>
+          <Experiencia />
+        </SectionTransition>
+        
       </main>
 
-      <Footer /> {/* Si quieres que el footer siga fijo o abajo del todo */}
+      <Footer />
     </div>
   )
 }
