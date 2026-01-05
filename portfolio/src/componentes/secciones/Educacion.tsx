@@ -93,15 +93,6 @@ export function Educacion() {
             </span>
           </motion.h2>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-slate-400 text-lg max-w-2xl mx-auto"
-          >
-            Un recorrido por mi trayectoria educativa, donde la teoría se encuentra con la práctica para crear soluciones de software sólidas.
-          </motion.p>
         </div>
 
         {/* ─── LÍNEA DE TIEMPO (TIMELINE) ─── */}

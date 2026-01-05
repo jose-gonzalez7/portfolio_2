@@ -29,10 +29,10 @@ const experienceData = [
 
 export function Experiencia() {
   return (
-    <section id="experiencia" className="relative pt-0 pb-20 md:pb-32 overflow-hidden bg-[#0b1220]">
+    <section id="experiencia" className="relative pt-0 pb-20 md:pb-12 overflow-hidden bg-[#0b1220]">
       
       {/* Título de la sección (Centrado) */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10 mb-20 pt-20">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-10 mb-20 pt-0">
         <div className="text-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
