@@ -2,17 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  /* Previene el rebote elástico en iOS */
-  overscroll-behavior: none; 
-}
-
 html, body, #root {
-  /* Asegura que el contenedor padre ocupe todo el espacio real */
-  height: 100%; 
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Importante para tu layout tipo "app" */
+  background-color: #0b1220; /* Color de fondo base */
+  overflow: hidden;
+}
+
+/* Mejora el scroll del contenedor main */
+main::-webkit-scrollbar {
+  width: 6px;
+}
+main::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
 }
 
 /* Fix específico para Safari antiguo si dvh falla */
@@ -20,4 +24,16 @@ html, body, #root {
   .h-screen {
     height: -webkit-fill-available;
   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
 }
