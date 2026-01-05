@@ -21,8 +21,7 @@ export function Hero() {
     <section 
       id="inicio" 
       // Añadido min-h-screen para asegurar altura completa si es necesario
-      className="relative flex min-h-[calc(100vh-4rem)] items-center pt-20 pb-32 lg:pb-40 overflow-hidden"
-    >
+      className="relative flex min-h-[calc(100vh-4rem)] items-center pt-20 pb-10 lg:pb-16 overflow-hidden"    >
       
       {/* ───────────────────────────── */}
       {/* FONDO: Gradientes / Glows */}

@@ -1,5 +1,6 @@
 import { Navbar } from "../componentes/layout/Navbar"
 import { Hero } from "../componentes/secciones/Hero"
+import { Educacion } from "../componentes/secciones/Educacion"
 import { Footer } from "../componentes/layout/Footer"
 
 export function Home() {
@@ -7,13 +8,13 @@ export function Home() {
     <div className="h-[100dvh] flex flex-col bg-[#0b1220] overflow-hidden">
       <Navbar />
 
-      {/* El contenido central crece para ocupar el espacio, el footer se queda abajo */}
-      <main className="flex-1 overflow-y-auto pt-16 scroll-smooth">
+      <main className="flex-1 overflow-y-auto scroll-smooth">
         <Hero />
-        {/* Aquí irán el resto de secciones */}
+        {/* ¡IMPORTANTE! Aquí no debe haber ningún <div className="h-20" /> */}
+        <Educacion />
       </main>
 
-      <Footer />
+      <Footer /> {/* Si quieres que el footer siga fijo o abajo del todo */}
     </div>
   )
 }
