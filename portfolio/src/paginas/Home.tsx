@@ -4,7 +4,7 @@ import { Footer } from "../componentes/layout/Footer"
 
 export function Home() {
   return (
-    <div className="h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background">
       {/* NAVBAR FIJO */}
       <Navbar />
 
