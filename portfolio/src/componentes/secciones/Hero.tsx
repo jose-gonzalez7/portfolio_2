@@ -61,7 +61,7 @@ export function Hero() {
             Especialista en el desarrollo de aplicaciones Full Stack con un enfoque sólido en **arquitecturas backend escalables**, optimización de bases de datos y experiencias de usuario de alto rendimiento.
           </p>
           
-          {/* HE DESCOMENTADO LOS BOTONES - Son necesarios para rellenar visualmente 
+          {/* 
           <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
             <a href="#proyectos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
               Ver Proyectos

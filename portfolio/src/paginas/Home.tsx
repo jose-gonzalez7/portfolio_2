@@ -4,6 +4,7 @@ import { Educacion } from "../componentes/secciones/Educacion"
 import { Footer } from "../componentes/layout/Footer"
 import { Experiencia } from "../componentes/secciones/Experiencia"
 import { SectionTransition } from "../componentes/layout/SectionTransition"
+import { Tecnologias } from "../componentes/secciones/Tecnologias"
 
 export function Home() {
   return (
@@ -23,6 +24,11 @@ export function Home() {
         {/* Envolvemos Experiencia */}
         <SectionTransition>
           <Experiencia />
+        </SectionTransition>
+
+        {/* Envolvemos Tecnologías */}
+        <SectionTransition>
+          <Tecnologias />
         </SectionTransition>
         
       </main>
