@@ -4,7 +4,6 @@ export function Hero() {
   return (
     <section 
       id="inicio" 
-      // pb-32 asegura que el contenido no choque con el footer fixed
       className="relative flex min-h-[calc(100vh-4rem)] items-center pt-10 pb-32 lg:pb-40 overflow-hidden"
     >
       
@@ -24,19 +23,19 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            Disponible para trabajar
+            Disponible para nuevos retos
           </span>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-            CONSTRUYENDO <br />
+            SI LO PUEDES <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              EL FUTURO
+              IMAGINAR <br />
             </span>{' '}
-            DIGITAL.
+            LO PUEDES PROGRAMAR.
           </h1>
 
           <p className="text-slate-400 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed">
-            Soy un desarrollador Full Stack especializado en crear experiencias web inmersivas, escalables y visualmente impactantes. Transformo ideas complejas en código elegante.
+            Especialista en el desarrollo de aplicaciones Full Stack con un enfoque sólido en **arquitecturas backend escalables**, optimización de bases de datos y experiencias de usuario de alto rendimiento.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
@@ -48,22 +47,12 @@ export function Hero() {
               Contáctame
             </a>
           </div>
-
-          <div className="flex items-center justify-center lg:justify-start gap-6 pt-8 mt-2 border-t border-white/5">
-            <SocialLink icon={<GithubIcon />} label="GitHub" href="https://github.com/jose-gonzalez7" />
-            <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://www.linkedin.com/in/jose-antonio-gonz%C3%A1lez-rom%C3%A1n-5a7252317/" />
-            <SocialLink icon={<MailIcon />} label="Email" href="mailto:jgonzalezroman7@gmail.com" />
-          </div>
         </div>
 
-        {/* COLUMNA DERECHA: Código */}
+        {/* COLUMNA DERECHA: Código Backend Pro */}
         <div className="relative w-full max-w-lg mx-auto lg:ml-auto">
-          <div className="absolute -top-6 -right-6 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block">
+          <div className="absolute -top-6 -right-6 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block animate-bounce-slow">
             <RocketIcon className="text-blue-400 w-6 h-6" />
-          </div>
-
-          <div className="absolute -bottom-8 -left-4 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block">
-             <BulbIcon className="text-yellow-400 w-6 h-6" />
           </div>
 
           <div className="relative rounded-xl bg-[#0e1625] border border-slate-800 shadow-2xl overflow-hidden">
@@ -73,27 +62,37 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="text-xs text-slate-500 font-mono">dev_profile.tsx</div>
+              <div className="text-xs text-slate-500 font-mono">portfolio.ts</div>
               <div className="w-10"></div>
             </div>
 
             <div className="p-6 font-mono text-[13px] sm:text-sm leading-6 text-slate-300 overflow-x-auto">
               <pre>
                 <code>
-                  <span className="text-purple-400">const</span> <span className="text-blue-400">Desarrollador</span> <span className="text-slate-400">=</span> <span className="text-yellow-400">{`{`}</span>{'\n'}
-                  {'  '}nombre: <span className="text-green-400">'Jose Gonzalez'</span>,{'\n'}
-                  {'  '}rol: <span className="text-green-400">'Full Stack Developer'</span>,{'\n'}
-                  {'  '}stack: <span className="text-yellow-400">[</span>{'\n'}
-                  {'    '}<span className="text-green-400">'React'</span>, <span className="text-green-400">'Node.js'</span>, <span className="text-green-400">'TypeScript'</span>{'\n'}
-                  {'  '}<span className="text-yellow-400">]</span>,{'\n'}
-                  {'  '}pasion: <span className="text-green-400">'Innovación'</span>{'\n'}
+                  <span className="text-purple-400">const</span> <span className="text-blue-400">JoseGonzalez</span> <span className="text-slate-400">=</span> <span className="text-yellow-400">{`{`}</span>{'\n'}
+                  {'  '}rol: <span className="text-green-400">'Full Stack Dev'</span>,{'\n'}
+                  {'  '}backend: <span className="text-yellow-400">{`{`}</span>{'\n'}
+                  {'    '}core: <span className="text-yellow-400">[</span><span className="text-green-400">'Node.js'</span>, <span className="text-green-400">'Next.js'</span>, <span className="text-green-400">'TS'</span><span className="text-yellow-400">]</span>,{'\n'}
+                  {'    '}db: <span className="text-yellow-400">[</span><span className="text-green-400">'PostgreSQL'</span>, <span className="text-green-400">'Prisma'</span>, <span className="text-green-400">'Redis'</span><span className="text-yellow-400">]</span>,{'\n'}
+                  {'    '}devops: <span className="text-yellow-400">[</span><span className="text-green-400">'Docker'</span>, <span className="text-green-400">'AWS'</span>, <span className="text-green-400">'CI/CD'</span><span className="text-yellow-400">]</span>{'\n'}
+                  {'  '}<span className="text-yellow-400">{`}`}</span>,{'\n'}
+                  {'  '}enfoque: <span className="text-green-400">'Arquitectura Limpia & Seguridad'</span>{'\n'}
                   <span className="text-yellow-400">{`}`}</span>;{'\n'}
                   {'\n'}
-                  <span className="text-purple-400">function</span> <span className="text-blue-400">iniciarProyecto</span><span className="text-purple-400">()</span> <span className="text-yellow-400">{`{`}</span>{'\n'}
-                  {'  '}<span className="text-purple-400">return</span> <span className="text-blue-400">Desarrollador</span>.construir(<span className="text-green-400">'Futuro'</span>);{'\n'}
+                  <span className="text-purple-400">async function</span> <span className="text-blue-400">deploy</span><span className="text-purple-400">()</span> <span className="text-yellow-400">{`{`}</span>{'\n'}
+                  {'  '}<span className="text-purple-400">await</span> JoseGonzalez.build(<span className="text-green-400">'Escalabilidad'</span>);{'\n'}
                   <span className="text-yellow-400">{`}`}</span>
                 </code>
               </pre>
+            </div>
+            
+            {/* Barra inferior de estado (Muy profesional) */}
+            <div className="px-4 py-2 border-t border-slate-800 bg-[#0e1625]/50 flex justify-between items-center">
+               <div className="flex gap-4 text-[10px] text-slate-500 font-mono">
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500"></span> Online</span>
+                  <span>Port: 3000</span>
+               </div>
+               <span className="text-[10px] text-blue-400 font-mono italic">Ready to ship</span>
             </div>
           </div>
         </div>
@@ -102,18 +101,16 @@ export function Hero() {
   );
 }
 
-// Iconos y Subcomponentes (mantener igual que el original)
 function SocialLink({ icon, label, href }: { icon: React.ReactNode, label: string, href: string }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium">
-      {icon}
+    <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium group">
+      <div className="group-hover:scale-110 transition-transform">{icon}</div>
       <span>{label}</span>
     </a>
   );
 }
 
+// Iconos (Mismos del código anterior...)
 const GithubIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 4 3c-1.25.5-2.5 1-3 1.5 0 3 .15 4.5 1.5 4.5.3 1.5 0 2 .5 3.5 0 1 .5 2.5 1 3.5 0 1 .5 2.5 1 3.5-1.5 0-3 1.5-3 3.5 0 1 .5 2 1.5 2 1.5 2 1.5 3.5 1.5 4.5v4"/></svg>;
 const LinkedinIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
-const MailIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
 const RocketIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>;
-const BulbIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2 1.5-3.5 0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.5.5 2.5 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>;
