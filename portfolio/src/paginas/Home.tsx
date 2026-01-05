@@ -2,6 +2,7 @@ import { Navbar } from "../componentes/layout/Navbar"
 import { Hero } from "../componentes/secciones/Hero"
 import { Educacion } from "../componentes/secciones/Educacion"
 import { Footer } from "../componentes/layout/Footer"
+import { Experiencia } from "../componentes/secciones/Experiencia"
 
 export function Home() {
   return (
@@ -10,8 +11,8 @@ export function Home() {
 
       <main className="flex-1 overflow-y-auto scroll-smooth">
         <Hero />
-        {/* ¡IMPORTANTE! Aquí no debe haber ningún <div className="h-20" /> */}
         <Educacion />
+        <Experiencia />
       </main>
 
       <Footer /> {/* Si quieres que el footer siga fijo o abajo del todo */}
