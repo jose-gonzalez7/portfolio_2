@@ -4,32 +4,33 @@ export function Hero() {
       id="inicio"
       className="
         relative
-        w-full
-        min-h-[calc(100vh-4rem)]
         flex items-center
-        pt-16
+        py-16 sm:py-20
       "
     >
       <div
         className="
+          w-full
           max-w-7xl
           mx-auto
-          px-6
+          px-5 sm:px-6
+          py-16 sm:py-20
           grid
           grid-cols-1
           lg:grid-cols-2
-          gap-16
+          gap-12 lg:gap-20
           items-center
         "
       >
         {/* ───────────────────────────── */}
         {/* IZQUIERDA – TEXTO */}
         {/* ───────────────────────────── */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 text-center lg:text-left">
           
           {/* Badge */}
           <span
             className="
+              mx-auto lg:mx-0
               inline-flex
               items-center
               gap-2
@@ -49,12 +50,13 @@ export function Hero() {
           {/* Título */}
           <h1
             className="
-              text-5xl
+              text-4xl
+              sm:text-5xl
               md:text-6xl
               font-extrabold
               tracking-tight
-              text-white
               leading-tight
+              text-white
             "
           >
             CONSTRUYENDO <br />
@@ -66,21 +68,35 @@ export function Hero() {
             className="
               text-text-secondary
               max-w-xl
+              mx-auto lg:mx-0
               leading-relaxed
               text-base
-              md:text-lg
+              sm:text-lg
             "
           >
-            Soy desarrollador proactivo y resolutivo (DAM y DAW) enfocado en crear soluciones funcionales y escalables. Experiencia práctica en entornos ágiles, APIs, bases de datos SQL/NoSQL y despliegues en la nube.
+            Soy desarrollador proactivo y resolutivo (DAM y DAW) enfocado en crear
+            soluciones funcionales y escalables. Experiencia práctica en entornos
+            ágiles, APIs, bases de datos SQL/NoSQL y despliegues en la nube.
           </p>
 
           {/* Botones */}
-          <div className="flex items-center gap-4 pt-2">
+          <div
+            className="
+              flex
+              flex-col
+              sm:flex-row
+              gap-4
+              pt-2
+              justify-center
+              lg:justify-start
+            "
+          >
             <a
               href="#proyectos"
               className="
                 inline-flex
                 items-center
+                justify-center
                 gap-2
                 bg-primary
                 text-white
@@ -91,6 +107,7 @@ export function Hero() {
                 shadow-lg
                 shadow-primary/30
                 hover:shadow-primary/50
+                hover:opacity-90
                 transition
               "
             >
@@ -102,6 +119,7 @@ export function Hero() {
               className="
                 inline-flex
                 items-center
+                justify-center
                 gap-2
                 border
                 border-white/15
@@ -120,10 +138,14 @@ export function Hero() {
         </div>
 
         {/* ───────────────────────────── */}
-        {/* DERECHA – BLOQUE DE CÓDIGO */}
+        {/* DERECHA – BLOQUE VISUAL / CÓDIGO */}
         {/* ───────────────────────────── */}
         <div
           className="
+            w-full
+            max-w-md
+            mx-auto
+            lg:max-w-none
             bg-[#0e1625]
             border
             border-white/10
@@ -135,8 +157,7 @@ export function Hero() {
             text-white/90
           "
         >
-          {/* Aquí puedes meter código, imagen o animación */}
-          <pre className="whitespace-pre-wrap">
+          <pre className="whitespace-pre-wrap leading-relaxed">
 {`const Developer = {
   name: "Tu Nombre",
   role: "Full Stack Developer",
