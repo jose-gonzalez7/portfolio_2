@@ -2,19 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-}
-
 html {
-  scroll-behavior: smooth;
+  /* Previene el rebote elástico en iOS */
+  overscroll-behavior: none; 
 }
 
-* {
-  -webkit-overflow-scrolling: touch;
+html, body, #root {
+  /* Asegura que el contenedor padre ocupe todo el espacio real */
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Importante para tu layout tipo "app" */
 }
 
-
-
+/* Fix específico para Safari antiguo si dvh falla */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}

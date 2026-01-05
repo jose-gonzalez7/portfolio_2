@@ -1,20 +1,20 @@
 export function Hero() {
   return (
     <section
-      id="inicio"
-      className="
-        relative
-        flex
-        items-center
-        py-16 sm:py-20
-      "
-    >
+    id="inicio"
+    className="
+      relative
+      flex items-center
+      py-16 sm:py-20
+    "
+  >
       <div
         className="
           w-full
           max-w-7xl
           mx-auto
           px-5 sm:px-6
+          py-16 sm:py-20
           grid
           grid-cols-1
           lg:grid-cols-2
