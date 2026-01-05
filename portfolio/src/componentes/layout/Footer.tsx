@@ -2,11 +2,13 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#0b1220]/90 backdrop-blur-md border-t border-white/5 shrink-0 px-6">
-      {/* max-w-7xl asegura que no se pegue al borde infinito en monitores gigantes, 
-          pero justify-between separa los bloques a los lados */}
-      <div className="max-w-7xl mx-auto h-16 flex items-center justify-between">
-        
+    // bg-[#0b1220]/90 con backdrop-blur para el efecto cristal
+    <footer className="w-full bg-[#0b1220]/90 backdrop-blur-md border-t border-white/5 shrink-0">
+      
+      {/* QUITAMOS max-w-7xl para que se pegue a los lados.
+        Usamos px-6 o px-10 para dejar un pequeño margen de seguridad y que no toque el borde del cristal.
+      */}
+      <div className="w-full px-6 sm:px-10 h-16 flex items-center justify-between">
         {/* BLOQUE IZQUIERDO */}
         <div className="flex flex-col items-start">
           <span className="text-white/90 font-medium text-sm">

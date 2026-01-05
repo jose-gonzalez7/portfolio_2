@@ -95,7 +95,7 @@ export function Hero() {
               <pre>
                 <code>
                   <span className="text-purple-400">const</span> <span className="text-blue-400">Desarrollador</span> <span className="text-slate-400">=</span> <span className="text-yellow-400">{`{`}</span>{'\n'}
-                  {'  '}nombre: <span className="text-green-400">'Jose Gonzalez'</span>,<span className="text-slate-600"> // Tu Nombre</span>{'\n'}
+                  {'  '}nombre: <span className="text-green-400">'Jose Gonzalez'</span>,{'\n'}
                   {'  '}rol: <span className="text-green-400">'Full Stack Developer'</span>,{'\n'}
                   {'  '}stack: <span className="text-yellow-400">[</span>{'\n'}
                   {'    '}<span className="text-green-400">'React'</span>, <span className="text-green-400">'Node.js'</span>, <span className="text-green-400">'TypeScript'</span>{'\n'}
