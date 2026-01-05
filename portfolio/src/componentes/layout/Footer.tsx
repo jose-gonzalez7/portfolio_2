@@ -36,7 +36,7 @@ export function Footer() {
           <a
             /*href="jgonzalezroman7@gmail.com"*/
             aria-label="Email"
-            className="hover:text-white transition"
+            className="hover:text-white transition" 
           >
             <Mail size={18} />
           </a>
