@@ -20,7 +20,8 @@ export function Navbar() {
         shadow-[0_4px_30px_rgba(0,0,0,0.25)]
       "
     >
-      <nav className="relative max-w-7xl mx-auto px-6 h-16 flex items-center">
+      <nav className="relative w-full px-6 h-16 flex items-center">
+
         {/* IZQUIERDA – LOGO */}
         <div className="flex items-center gap-2 text-white font-semibold">
           <span className="text-primary text-lg">{"</>"}</span>
@@ -67,7 +68,9 @@ export function Navbar() {
         {/* DERECHA – BOTÓN + HAMBURGUESA */}
         <div className="ml-auto flex items-center gap-4">
           {/* BOTÓN CV (DESKTOP) */}
-          <button
+          <a
+            href="/cv-jg.pdf"
+            download
             className="
               hidden md:inline-flex
               bg-primary text-white
@@ -75,20 +78,17 @@ export function Navbar() {
               text-sm font-semibold
               shadow-lg shadow-primary/30
               hover:shadow-primary/50
+              hover:opacity-90
               transition
             "
           >
-            CV
-          </button>
+          CV
+          </a>
 
           {/* BOTÓN MENÚ (MOBILE) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="
-              md:hidden
-              text-white
-              focus:outline-none
-            "
+            className="md:hidden text-white focus:outline-none"
             aria-label="Toggle menu"
           >
             <span className="text-2xl">☰</span>
@@ -112,17 +112,23 @@ export function Navbar() {
               </li>
             ))}
 
-            <button
+            {/* BOTÓN CV (MOBILE) */}
+            <a
+              href="/cv-jg.pdf"
+              download
+              onClick={() => setIsOpen(false)}
               className="
                 mt-4
                 bg-primary text-white
                 px-6 py-2 rounded-lg
                 font-semibold
                 shadow-lg shadow-primary/30
+                hover:opacity-90
+                transition
               "
             >
-              Descargar CV
-            </button>
+            CV
+            </a>
           </ul>
         </div>
       )}
