@@ -15,7 +15,9 @@ export function Home() {
       </main>
 
       {/* FOOTER SIEMPRE VISIBLE */}
-      <Footer />
+      <footer className="pb-[env(safe-area-inset-bottom)]">
+        <Footer />
+      </footer>
     </div>
   )
 }
