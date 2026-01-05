@@ -4,12 +4,20 @@ import { Footer } from "../componentes/layout/Footer"
 
 export function Home() {
   return (
-    <div className="h-screen flex flex-col bg-background overflow-hidden">
-      {/* NAVBAR FIXED */}
+    <div
+      className="
+        min-h-[100dvh]
+        grid
+        grid-rows-[auto,1fr,auto]
+        bg-background
+        overflow-hidden
+      "
+    >
+      {/* NAVBAR */}
       <Navbar />
 
-      {/* CONTENIDO CENTRAL SCROLLEABLE */}
-      <main className="flex-1 overflow-y-auto pt-16">
+      {/* CONTENIDO SCROLLEABLE */}
+      <main className="overflow-y-auto pt-16">
         <Hero />
         {/* aquí irán más secciones */}
       </main>
