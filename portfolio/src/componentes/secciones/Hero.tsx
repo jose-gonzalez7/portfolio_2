@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
-// Iconos (Mismos que antes...)
+// ─── ICONOS ───
 const RocketIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>;
 const GithubIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 4 3c-1.25.5-2.5 1-3 1.5 0 3 .15 4.5 1.5 4.5.3 1.5 0 2 .5 3.5 0 1 .5 2.5 1 3.5-1.5 0-3 1.5-3 3.5 0 1 .5 2 1.5 2 1.5 2 1.5 3.5 1.5 4.5v4"/></svg>;
 const LinkedinIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
@@ -19,6 +20,7 @@ export function Hero() {
   return (
     <section 
       id="inicio" 
+      // Añadido min-h-screen para asegurar altura completa si es necesario
       className="relative flex min-h-[calc(100vh-4rem)] items-center pt-20 pb-32 lg:pb-40 overflow-hidden"
     >
       
@@ -28,19 +30,20 @@ export function Hero() {
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] -z-10" />
 
-      {/* CAMBIO CLAVE AQUÍ:
-         - Mantenemos max-w-7xl (para que no se separe demasiado el contenido)
-         - CAMBIAMOS px-5 sm:px-6 POR px-6 md:px-10 (Para que coincida EXACTO con el Navbar)
+      {/* CAMBIOS CLAVE DE LAYOUT:
+          1. max-w-screen-2xl: Permite que el contenido se expanda hasta ~1536px (más ancho que 7xl).
+          2. lg:gap-20: Separa más el texto del código para usar ese espacio extra.
+          3. px-6 md:px-12: Un poco más de margen lateral para elegancia.
       */}
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
         {/* COLUMNA IZQUIERDA: Texto */}
         <div className="flex flex-col gap-8 text-center lg:text-left relative z-10">
           
           <span className="mx-auto lg:mx-0 inline-flex items-center gap-2 w-fit rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 px-3 py-1 text-xs font-semibold tracking-wide uppercase">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 opacity-75"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
             Disponible para nuevos retos
           </span>
@@ -56,7 +59,8 @@ export function Hero() {
           <p className="text-slate-400 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed">
             Especialista en el desarrollo de aplicaciones Full Stack con un enfoque sólido en **arquitecturas backend escalables**, optimización de bases de datos y experiencias de usuario de alto rendimiento.
           </p>
-
+          
+          {/* HE DESCOMENTADO LOS BOTONES - Son necesarios para rellenar visualmente */}
           <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
             <a href="#proyectos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
               Ver Proyectos
@@ -67,7 +71,7 @@ export function Hero() {
             </a>
           </div>
           
-           {/* REDES SOCIALES (Mantenemos la alineación) */}
+           {/* REDES SOCIALES */}
            <div className="flex items-center justify-center lg:justify-start gap-6 pt-2 text-slate-400">
              <SocialLink icon={<GithubIcon />} label="GitHub" href="https://github.com/jose-gonzalez7" />
              <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://linkedin.com/in/jose-antonio-gonzalez" />
@@ -77,10 +81,23 @@ export function Hero() {
         </div>
 
         {/* COLUMNA DERECHA: Código Backend Pro */}
-        <div className="relative w-full max-w-lg mx-auto lg:ml-auto lg:mr-0">
-          <div className="absolute -top-6 -right-6 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block animate-bounce-slow">
+        <div className="relative w-full max-w-xl mx-auto lg:ml-auto lg:mr-0">
+          
+          {/* Cohete Animado */}
+          <motion.div
+            animate={{ 
+                y: [0, -15, 0], 
+                rotate: [0, 5, -5, 0] 
+            }}
+            transition={{ 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+            }}
+            className="absolute -top-6 -right-6 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block"
+          >
             <RocketIcon className="text-blue-400 w-6 h-6" />
-          </div>
+          </motion.div>
 
           <div className="relative rounded-xl bg-[#0e1625] border border-slate-800 shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02] duration-500">
             <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-[#0e1625]">
