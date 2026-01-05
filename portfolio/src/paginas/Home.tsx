@@ -13,7 +13,6 @@ export function Home() {
         {/* Aquí irán el resto de secciones */}
       </main>
 
-      {/* Quitamos paddings de aquí para que el Footer maneje su propia anchura */}
       <Footer />
     </div>
   )

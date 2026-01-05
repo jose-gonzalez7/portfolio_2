@@ -2,15 +2,14 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    // bg-[#0b1220]/90 con backdrop-blur para el efecto cristal
-    <footer className="w-full bg-[#0b1220]/90 backdrop-blur-md border-t border-white/5 shrink-0">
+    // CAMBIO: fixed bottom-0 para que flote sobre el contenido
+    <footer className="fixed bottom-0 left-0 w-full bg-[#0b1220]/70 backdrop-blur-md border-t border-white/5 z-50 px-6 sm:px-10">
+      {/* El gradiente debe ser absoluto respecto al footer */}
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none" />
       
-      {/* QUITAMOS max-w-7xl para que se pegue a los lados.
-        Usamos px-6 o px-10 para dejar un pequeño margen de seguridad y que no toque el borde del cristal.
-      */}
-      <div className="w-full px-6 sm:px-10 h-16 flex items-center justify-between">
+      <div className="relative w-full h-16 flex items-center justify-between">
         {/* BLOQUE IZQUIERDO */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start leading-tight">
           <span className="text-white/90 font-medium text-sm">
             © 2026 <span className="text-blue-500">Jose</span>González
           </span>
@@ -20,12 +19,11 @@ export function Footer() {
         </div>
 
         {/* BLOQUE DERECHO */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <SocialLink href="https://github.com/jose-gonzalez7" icon={<Github size={20}/>} />
-          <SocialLink href="https://linkedin.com/in/tu-perfil" icon={<Linkedin size={20}/>} />
-          <SocialLink href="mailto:tuemail@gmail.com" icon={<Mail size={20}/>} />
+          <SocialLink href="https://linkedin.com/in/jose-antonio-gonz%C3%A1lez-rom%C3%A1n-5a7252317/" icon={<Linkedin size={20}/>} />
+          <SocialLink href="mailto:jgonzalezroman7@gmail.com" icon={<Mail size={20}/>} />
         </div>
-
       </div>
     </footer>
   )
@@ -37,7 +35,7 @@ function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
       href={href} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="p-2 text-slate-400 hover:text-blue-400 hover:bg-white/5 rounded-full transition-all duration-300"
+      className="relative z-10 p-2 text-slate-400 hover:text-blue-400 hover:bg-white/5 rounded-full transition-all duration-300"
     >
       {icon}
     </a>

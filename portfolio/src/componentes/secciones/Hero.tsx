@@ -2,24 +2,23 @@ import React from 'react';
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative flex min-h-[calc(100vh-4rem)] items-center pt-10 pb-20 overflow-hidden">
+    <section 
+      id="inicio" 
+      // pb-32 asegura que el contenido no choque con el footer fixed
+      className="relative flex min-h-[calc(100vh-4rem)] items-center pt-10 pb-32 lg:pb-40 overflow-hidden"
+    >
       
       {/* ───────────────────────────── */}
       {/* FONDO: Gradientes / Glows */}
       {/* ───────────────────────────── */}
-      {/* Luz azul detrás del texto */}
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10" />
-      {/* Luz azul detrás del código */}
       <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] -z-10" />
 
       <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
         
-        {/* ───────────────────────────── */}
         {/* COLUMNA IZQUIERDA: Texto */}
-        {/* ───────────────────────────── */}
         <div className="flex flex-col gap-6 text-center lg:text-left relative z-10">
           
-          {/* Badge */}
           <span className="mx-auto lg:mx-0 inline-flex items-center gap-2 w-fit rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 px-3 py-1 text-xs font-semibold tracking-wide uppercase">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -28,7 +27,6 @@ export function Hero() {
             Disponible para trabajar
           </span>
 
-          {/* Título Principal */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
             CONSTRUYENDO <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
@@ -37,12 +35,10 @@ export function Hero() {
             DIGITAL.
           </h1>
 
-          {/* Descripción */}
           <p className="text-slate-400 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed">
             Soy un desarrollador Full Stack especializado en crear experiencias web inmersivas, escalables y visualmente impactantes. Transformo ideas complejas en código elegante.
           </p>
 
-          {/* Botones */}
           <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
             <a href="#proyectos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
               Ver Proyectos
@@ -53,33 +49,24 @@ export function Hero() {
             </a>
           </div>
 
-          {/* Iconos Sociales (GitHub, LinkedIn, Email) */}
           <div className="flex items-center justify-center lg:justify-start gap-6 pt-8 mt-2 border-t border-white/5">
-            <SocialLink icon={<GithubIcon />} label="GitHub" href="#" />
-            <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="#" />
-            <SocialLink icon={<MailIcon />} label="Email" href="#" />
+            <SocialLink icon={<GithubIcon />} label="GitHub" href="https://github.com/jose-gonzalez7" />
+            <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://www.linkedin.com/in/jose-antonio-gonz%C3%A1lez-rom%C3%A1n-5a7252317/" />
+            <SocialLink icon={<MailIcon />} label="Email" href="mailto:jgonzalezroman7@gmail.com" />
           </div>
         </div>
 
-        {/* ───────────────────────────── */}
         {/* COLUMNA DERECHA: Código */}
-        {/* ───────────────────────────── */}
         <div className="relative w-full max-w-lg mx-auto lg:ml-auto">
-          
-          {/* Icono Flotante: Cohete (Arriba Derecha) */}
-          <div className="absolute -top-6 -right-6 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block animate-float-slow">
+          <div className="absolute -top-6 -right-6 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block">
             <RocketIcon className="text-blue-400 w-6 h-6" />
           </div>
 
-          {/* Icono Flotante: Bombilla (Abajo Centro/Izq) */}
-          <div className="absolute -bottom-8 -left-4 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block animate-float-delayed">
+          <div className="absolute -bottom-8 -left-4 z-20 p-3 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl hidden sm:block">
              <BulbIcon className="text-yellow-400 w-6 h-6" />
           </div>
 
-          {/* VENTANA DE CÓDIGO ESTILO MAC */}
           <div className="relative rounded-xl bg-[#0e1625] border border-slate-800 shadow-2xl overflow-hidden">
-            
-            {/* Barra de título de la ventana */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-[#0e1625]">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -87,10 +74,9 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
               <div className="text-xs text-slate-500 font-mono">dev_profile.tsx</div>
-              <div className="w-10"></div> {/* Espaciador para centrar título */}
+              <div className="w-10"></div>
             </div>
 
-            {/* Contenido del Código (Syntax Highlighting Simulado) */}
             <div className="p-6 font-mono text-[13px] sm:text-sm leading-6 text-slate-300 overflow-x-auto">
               <pre>
                 <code>
@@ -100,7 +86,7 @@ export function Hero() {
                   {'  '}stack: <span className="text-yellow-400">[</span>{'\n'}
                   {'    '}<span className="text-green-400">'React'</span>, <span className="text-green-400">'Node.js'</span>, <span className="text-green-400">'TypeScript'</span>{'\n'}
                   {'  '}<span className="text-yellow-400">]</span>,{'\n'}
-                  {'  '}pasion: <span className="text-green-400">'Crear software innovador'</span>{'\n'}
+                  {'  '}pasion: <span className="text-green-400">'Innovación'</span>{'\n'}
                   <span className="text-yellow-400">{`}`}</span>;{'\n'}
                   {'\n'}
                   <span className="text-purple-400">function</span> <span className="text-blue-400">iniciarProyecto</span><span className="text-purple-400">()</span> <span className="text-yellow-400">{`{`}</span>{'\n'}
@@ -109,41 +95,23 @@ export function Hero() {
                 </code>
               </pre>
             </div>
-
-            {/* Barra de estado inferior */}
-            <div className="flex items-center justify-between px-4 py-1.5 border-t border-slate-800 bg-[#0b121f] text-[10px] text-slate-500 font-mono">
-                <div className="flex gap-4">
-                    <span>main*</span>
-                    <span>UTF-8</span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                    <span>Compilando...</span>
-                </div>
-            </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );
 }
 
-// ─────────────────────────────
-// Componentes Auxiliares (Iconos)
-// ─────────────────────────────
-
+// Iconos y Subcomponentes (mantener igual que el original)
 function SocialLink({ icon, label, href }: { icon: React.ReactNode, label: string, href: string }) {
   return (
-    <a href={href} className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium">
       {icon}
       <span>{label}</span>
     </a>
   );
 }
 
-// SVGs Simples para no depender de librerías externas
 const GithubIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 4 3c-1.25.5-2.5 1-3 1.5 0 3 .15 4.5 1.5 4.5.3 1.5 0 2 .5 3.5 0 1 .5 2.5 1 3.5 0 1 .5 2.5 1 3.5-1.5 0-3 1.5-3 3.5 0 1 .5 2 1.5 2 1.5 2 1.5 3.5 1.5 4.5v4"/></svg>;
 const LinkedinIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
 const MailIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
