@@ -30,7 +30,7 @@ const experienceData = [
 
 export function Experiencia() {
   return (
-    <section id="experiencia" className="relative py-20 md:py-32 overflow-hidden bg-[#0b1220]">
+    <section id="experiencia" className="relative pt-3 md:pt-8 pb-20 md:pb-12 overflow-hidden bg-[#0b1220]">
       
       {/* ─── TITULO Y ESTADÍSTICAS ─── */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 mb-20">

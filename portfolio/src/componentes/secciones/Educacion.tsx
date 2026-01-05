@@ -61,7 +61,7 @@ const certificationsData = [
 // ─── COMPONENTE PRINCIPAL ───
 export function Educacion() {
   return (
-    <section id="educacion" className="relative pt-0 md:pt-0 pb-20 md:pb-32 overflow-hidden bg-[#0b1220]">
+    <section id="educacion" className="relative pt-3 md:pt-8 pb-20 md:pb-12 overflow-hidden bg-[#0b1220]">
       
       {/* Fondo decorativo (Glow) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
