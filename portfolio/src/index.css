@@ -7,13 +7,7 @@ body,
 #root {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
-body {
-  background: radial-gradient(
-      circle at top left,
-      #0e1a2f,
-      #0b1220 60%
-    );
-  color: #e5e7eb;
-}
+
 

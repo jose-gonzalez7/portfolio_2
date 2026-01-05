@@ -4,14 +4,16 @@ import { Footer } from "../componentes/layout/Footer"
 
 export function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-screen flex flex-col bg-background">
+      {/* NAVBAR FIJO */}
       <Navbar />
 
-      {/* CONTENIDO PRINCIPAL */}
-      <main className="flex-1">
+      {/* ZONA SCROLLEABLE */}
+      <main className="flex-1 overflow-y-auto">
         <Hero />
       </main>
 
+      {/* FOOTER SIEMPRE VISIBLE */}
       <Footer />
     </div>
   )
