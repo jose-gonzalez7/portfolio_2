@@ -3,28 +3,28 @@ import { motion } from 'framer-motion';
 // ─── DATOS: MODIFICA TU EDUCACIÓN AQUÍ ───
 const educationData = [
   {
-    period: "2023 - Actualidad",
-    title: "Máster en Ingeniería de Software",
-    institution: "Universidad Tecnológica",
-    description: "Especialización en arquitecturas de software avanzadas, sistemas distribuidos y liderazgo técnico. Tesis sobre escalabilidad en microservicios.",
-    tags: ["Arquitectura", "Cloud Computing", "Liderazgo"],
-    icon: "school" 
+    period: "2026 - Actualidad",
+    title: "Especialidad en Ciberseguridad",
+    institution: "IES ZAIDÍN VERGELES (Granada)",
+    description: "Enfoque en seguridad defensiva y ofensiva, auditorías de sistemas, análisis forense y securización de infraestructuras críticas.",
+    tags: ["Ethical Hacking", "SIEM/SOAR", "Cloud Security", "Pentesting"],
+    icon: "verified_user" 
   },
   {
-    period: "2019 - 2023",
-    title: "Grado en Ingeniería Informática",
-    institution: "Universidad Politécnica",
-    description: "Fundamentos sólidos en ciencias de la computación, algoritmos y estructuras de datos. Graduado con mención de honor en el proyecto final.",
-    tags: ["Algoritmos", "Estructuras de Datos", "Java"],
-    icon: "menu_book"
+    period: "2024 - 2026",
+    title: "Desarrollo de Aplicaciones Web (DAW)",
+    institution: "IES Alonso Cano (Granada)",
+    description: "Dominio del ecosistema web moderno. Creación de aplicaciones escalables, interactivas y optimizadas para el rendimiento.",
+    tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Docker"],
+    icon: "language"
   },
   {
-    period: "2022",
-    title: "Bootcamp Full Stack Web Development",
-    institution: "Ironhack",
-    description: "Formación intensiva de 9 semanas enfocada en el stack MERN (MongoDB, Express, React, Node.js) y metodologías ágiles.",
-    tags: ["MERN Stack", "React", "Node.js"],
-    icon: "code"
+    period: "2022 - 2024",
+    title: "Desarrollo de Aplicaciones Multiplataforma (DAM)",
+    institution: "CES Cristo Rey (Granada)",
+    description: "Base sólida en lógica de programación, gestión de bases de datos relacionales y desarrollo de interfaces multiplataforma.",
+    tags: ["C++ Fundamentals", "Java Server Side", "BBDD", "Programación Multihilo"],
+    icon: "devices"
   }
 ];
 

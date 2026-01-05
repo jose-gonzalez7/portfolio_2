@@ -20,8 +20,10 @@ export function Hero() {
   return (
     <section 
       id="inicio" 
-      // Añadido min-h-screen para asegurar altura completa si es necesario
-      className="relative flex min-h-[calc(100vh-4rem)] items-center pt-20 pb-10 lg:pb-16 overflow-hidden"    >
+      // CAMBIO CLAVE: Aumentamos pt-20 a pt-36 o pt-40 para bajar el contenido
+      // Mantenemos pb-10 o pb-12 para que no haya mucho hueco abajo
+      className="relative flex min-h-[calc(100vh-4rem)] items-center pt-36 pb-12 overflow-hidden"
+    >
       
       {/* ───────────────────────────── */}
       {/* FONDO: Gradientes / Glows */}
