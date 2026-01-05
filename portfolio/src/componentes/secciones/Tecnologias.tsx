@@ -1,15 +1,9 @@
 import { motion } from 'framer-motion';
 import { 
-  Code2, 
-  Database, 
   Layout, 
   Server, 
   ShieldCheck, 
-  Terminal, 
-  Cpu, 
-  Globe,
   Layers,
-  Box,
   Lock
 } from 'lucide-react';
 
@@ -20,11 +14,11 @@ const techStack = [
     description: "Experiencias de usuario rápidas, reactivas y tipadas.",
     icon: <Layout className="w-6 h-6 text-blue-400" />,
     items: [
-      { name: "Next.js 15", level: "Avanzado", color: "bg-white/10 text-white border-white/20" },
-      { name: "React", level: "Avanzado", color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-      { name: "TypeScript", level: "Experto", color: "bg-blue-600/10 text-blue-500 border-blue-600/20" },
-      { name: "Tailwind CSS", level: "Experto", color: "bg-cyan-400/10 text-cyan-400 border-cyan-400/20" },
-      { name: "Framer Motion", level: "Intermedio", color: "bg-purple-500/10 text-purple-400 border-purple-500/20" }
+      { name: "Next.js 15", logo: "https://cdn.simpleicons.org/nextdotjs/white", color: "hover:border-white/50" },
+      { name: "React", logo: "https://cdn.simpleicons.org/react/61DAFB", color: "hover:border-[#61DAFB]/50" },
+      { name: "TypeScript", logo: "https://cdn.simpleicons.org/typescript/3178C6", color: "hover:border-[#3178C6]/50" },
+      { name: "Tailwind CSS", logo: "https://cdn.simpleicons.org/tailwindcss/06B6D4", color: "hover:border-[#06B6D4]/50" },
+      { name: "Framer Motion", logo: "https://cdn.simpleicons.org/framer/0055FF", color: "hover:border-[#0055FF]/50" }
     ]
   },
   {
@@ -32,11 +26,11 @@ const techStack = [
     description: "Lógica de negocio robusta, escalable y protegida.",
     icon: <Server className="w-6 h-6 text-emerald-400" />,
     items: [
-      { name: "Node.js", level: "Avanzado", color: "bg-green-500/10 text-green-400 border-green-500/20" },
-      { name: "PostgreSQL", level: "Intermedio", color: "bg-blue-400/10 text-blue-300 border-blue-400/20" },
-      { name: "Prisma ORM", level: "Avanzado", color: "bg-slate-500/10 text-slate-300 border-slate-500/20" },
-      { name: "Java / Spring", level: "Sólido", color: "bg-red-500/10 text-red-400 border-red-500/20" },
-      { name: "Auth.js", level: "Seguridad", color: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20" }
+      { name: "Node.js", logo: "https://cdn.simpleicons.org/nodedotjs/339933", color: "hover:border-[#339933]/50" },
+      { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql/4169E1", color: "hover:border-[#4169E1]/50" },
+      { name: "Prisma", logo: "https://cdn.simpleicons.org/prisma/white", color: "hover:border-white/50" },
+      { name: "Java", logo: "https://cdn.simpleicons.org/openjdk/white", color: "hover:border-red-400/50" }, // Java/OpenJDK
+      { name: "JWT / Auth", logo: "https://cdn.simpleicons.org/jsonwebtokens/white", color: "hover:border-pink-500/50" }
     ]
   },
   {
@@ -44,23 +38,20 @@ const techStack = [
     description: "Despliegue continuo, contenedores y auditoría.",
     icon: <ShieldCheck className="w-6 h-6 text-orange-400" />,
     items: [
-      { name: "Docker", level: "Esencial", color: "bg-blue-600/10 text-blue-400 border-blue-600/20" },
-      { name: "AWS", level: "Cloud", color: "bg-orange-500/10 text-orange-400 border-orange-500/20" },
-      { name: "Linux / Bash", level: "Nativo", color: "bg-slate-600/10 text-slate-200 border-slate-600/20" },
-      { name: "Ethical Hacking", level: "Especialidad", color: "bg-red-600/10 text-red-500 border-red-600/20" },
-      { name: "CI/CD", level: "Pipeline", color: "bg-green-400/10 text-green-400 border-green-400/20" }
+      { name: "Docker", logo: "https://cdn.simpleicons.org/docker/2496ED", color: "hover:border-[#2496ED]/50" },
+      { name: "AWS", logo: "https://cdn.simpleicons.org/amazonaws/FF9900", color: "hover:border-[#FF9900]/50" },
+      { name: "Linux", logo: "https://cdn.simpleicons.org/linux/white", color: "hover:border-yellow-200/50" },
+      { name: "Kali Linux", logo: "https://cdn.simpleicons.org/kalilinux/557C94", color: "hover:border-[#557C94]/50" },
+      { name: "Git", logo: "https://cdn.simpleicons.org/git/F05032", color: "hover:border-[#F05032]/50" }
     ]
   }
 ];
 
 export function Tecnologias() {
   return (
-    <section className="relative pt-10 pb-24 md:py-32 bg-[#0b1220] overflow-hidden">
-      {/* 👆 CAMBIO 1: 'pb-24' en móvil (padding-bottom grande) 
-         Esto asegura que haya espacio de sobra al final en pantallas pequeñas.
-      */}
-
-      {/* Fondo sutil */}
+    <section className="relative pt-0 pb-20 md:pb-32 bg-[#0b1220] overflow-hidden">
+      
+      {/* Fondo sutil tipo matriz */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
@@ -74,7 +65,7 @@ export function Tecnologias() {
              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4"
           >
             <Layers size={14} className="text-indigo-400" />
-            <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider">Stack Técnico</span>
+            <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider">Arsenal Técnico</span>
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -96,10 +87,10 @@ export function Tecnologias() {
               transition={{ delay: index * 0.1 }}
               className="group relative flex flex-col h-full bg-[#0e1625] border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-slate-600 transition-colors duration-300 overflow-hidden"
             >
-              {/* Efecto de brillo */}
+              {/* Efecto de brillo (Glow) al hacer hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Icono y Título */}
+              {/* Icono y Título de Categoría */}
               <div className="relative z-10 flex items-center gap-4 mb-6">
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   {category.icon}
@@ -110,17 +101,24 @@ export function Tecnologias() {
                 </div>
               </div>
 
-              {/* Chips */}
+              {/* Lista de Tecnologías (Chips con Logos) */}
               <div className="relative z-10 flex flex-wrap gap-2 mt-auto">
                 {category.items.map((tech, idx) => (
                   <div 
                     key={idx}
                     className={`
-                      px-3 py-1.5 rounded-lg border text-sm font-medium flex items-center gap-2
-                      ${tech.color} backdrop-blur-sm
-                      hover:scale-105 transition-transform cursor-default
+                      px-3 py-1.5 rounded-lg border border-slate-700/50 bg-slate-800/30 
+                      text-sm font-medium flex items-center gap-2 text-slate-300
+                      hover:bg-slate-800 hover:text-white transition-all duration-300
+                      cursor-default ${tech.color}
                     `}
                   >
+                    {/* LOGO: Aquí está la magia */}
+                    <img 
+                      src={tech.logo} 
+                      alt={tech.name} 
+                      className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" 
+                    />
                     {tech.name}
                   </div>
                 ))}
@@ -129,7 +127,7 @@ export function Tecnologias() {
           ))}
         </div>
 
-        {/* Call to Action Integrado (CORREGIDO) */}
+        {/* Call to Action Integrado */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -137,10 +135,6 @@ export function Tecnologias() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          {/* 👇 CAMBIO 2: 'flex' + 'flex-wrap' + 'justify-center' 
-             Esto permite que si el texto es muy largo en móviles estrechos, 
-             se adapte en dos líneas en lugar de cortarse.
-          */}
           <div className="flex flex-wrap justify-center items-center gap-2 text-slate-500 text-sm bg-slate-900/50 px-5 py-2 rounded-full border border-slate-800 max-w-full mx-auto">
             <Lock size={14} className="text-emerald-500 shrink-0" />
             <span className="text-center">Stack enfocado en <strong>Seguridad</strong> y <strong>Escalabilidad</strong></span>
