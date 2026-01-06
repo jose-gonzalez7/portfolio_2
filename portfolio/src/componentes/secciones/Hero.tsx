@@ -262,7 +262,7 @@ function TiltCard({ mouseX, mouseY }: { mouseX: any, mouseY: any }) {
          <div className="flex gap-4 text-[10px] text-slate-500 font-mono">
             <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Compilation: Success</span>
          </div>
-         <span className="text-[10px] text-purple-400 font-mono">100% Secure</span>
+         <span className="text-[10px] text-purple-400 font-mono">99% Secure</span>
       </div>
     </motion.div>
   );

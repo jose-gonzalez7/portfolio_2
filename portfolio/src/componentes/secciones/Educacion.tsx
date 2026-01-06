@@ -9,7 +9,8 @@ import {
   BarChart, 
   FileCode,
   Sparkles,
-  Terminal, // Fallback para cosas de código
+  Terminal,
+  ExternalLink // Importamos el icono para el enlace
 } from 'lucide-react';
 
 // ─── MAPA DE LOGOS (Para Education Tags) ───
@@ -18,19 +19,22 @@ const techLogos: Record<string, string> = {
   "TypeScript": "https://cdn.simpleicons.org/typescript/3178C6",
   "Docker": "https://cdn.simpleicons.org/docker/2496ED",
   "Java": "https://cdn.simpleicons.org/openjdk/white",
+  "Java Multihilo": "https://cdn.simpleicons.org/openjdk/white",
   "C++": "https://cdn.simpleicons.org/cplusplus/00599C",
-  "SQL Avanzado": "https://cdn.simpleicons.org/postgresql/4169E1", // Usamos Postgres como representación
+  "SQL Avanzado": "https://cdn.simpleicons.org/postgresql/4169E1",
   "Ethical Hacking": "https://cdn.simpleicons.org/kalilinux/557C94",
-  "Cloud Security": "https://cdn.simpleicons.org/cloudflare/F38020", // O AWS
-  "SIEM/SOAR": "https://cdn.simpleicons.org/splunk/000000/white", // Splunk es representativo
+  "Cloud Security": "https://cdn.simpleicons.org/cloudflare/F38020",
+  "SIEM/SOAR": "https://cdn.simpleicons.org/splunk/000000/white",
+  "BBDD Avanzado": "https://cdn.simpleicons.org/postgresql/4169E1",
 };
 
-// ─── DATOS ───
+// ─── DATOS CON ENLACES ───
 const educationData = [
   {
     period: "2026 - Actualidad",
     title: "Especialidad en Ciberseguridad",
-    institution: "IES ZAIDÍN VERGELES",
+    institution: "IES Zaidin Vergeles",
+    link: "https://www.ieszaidinvergeles.org/", // ENLACE AÑADIDO
     description: "Formación de élite en seguridad ofensiva (Red Team) y defensiva (Blue Team). Auditoría de sistemas y análisis forense.",
     tags: ["Ethical Hacking", "SIEM/SOAR", "Cloud Security"],
     icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
@@ -41,6 +45,7 @@ const educationData = [
     period: "2024 - 2026",
     title: "Desarrollo de Aplicaciones Web",
     institution: "IES Alonso Cano",
+    link: "https://iesalonsocano.es/", // ENLACE AÑADIDO
     description: "Arquitectura de software moderna. Construcción de sistemas escalables utilizando el ecosistema JavaScript/TypeScript.",
     tags: ["Next.js 15", "TypeScript", "Docker"],
     icon: <Globe className="w-6 h-6 text-blue-400" />,
@@ -51,8 +56,9 @@ const educationData = [
     period: "2022 - 2024",
     title: "Desarrollo Multiplataforma",
     institution: "CES Cristo Rey",
+    link: "https://cescristorey.com/", // ENLACE AÑADIDO
     description: "Inicié mi camino dominando la gestión de memoria con C++, para luego especializarme en arquitecturas robustas y programación concurrente con Java.",
-    tags: ["C++", "Java Multihilo", "SQL Avanzado"],
+    tags: ["C++", "Java Multihilo", "BBDD Avanzado"],
     icon: <Smartphone className="w-6 h-6 text-purple-400" />,
     color: "purple",
     gradient: "from-purple-500/20 to-pink-500/5"
@@ -97,10 +103,8 @@ export function Educacion() {
       
       {/* ─── FONDO MÁGICO ─── */}
       <div className="absolute inset-0 pointer-events-none">
-         {/* Grid base */}
          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
          
-         {/* Partículas flotantes (Parallax simple) */}
          <motion.div style={{ y: yBg }} className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-[10%] w-72 h-72 bg-blue-600/20 rounded-full blur-[100px]" />
             <div className="absolute bottom-40 right-[10%] w-96 h-96 bg-emerald-600/10 rounded-full blur-[100px]" />
@@ -127,18 +131,13 @@ export function Educacion() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight"
           >
-            Continuo  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 animate-gradient-x">Aprendizaje</span>
+            En continuo <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 animate-gradient-x">Aprendizaje</span>
           </motion.h2>
-          
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-             Evolución constante a través de instituciones líderes y certificaciones globales.
-          </p>
         </div>
 
         {/* ─── TIMELINE 3D ─── */}
         <div className="relative max-w-5xl mx-auto mb-32">
           
-          {/* Línea Central "Fibra Óptica" */}
           <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-800 md:-translate-x-1/2 overflow-hidden rounded-full">
              <motion.div 
                style={{ scaleY: scrollYProgress, transformOrigin: "top" }}
@@ -167,10 +166,26 @@ export function Educacion() {
 
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
+                      
+                      {/* ─── INSTITUCIÓN CON ENLACE ─── */}
                       <div className="text-sm font-medium text-slate-400 mb-4 flex items-center gap-2">
                          <span className={`w-1.5 h-1.5 rounded-full bg-${item.color}-500 shadow-[0_0_10px_currentColor]`}/>
-                         {item.institution}
+                         
+                         {item.link ? (
+                           <a 
+                             href={item.link} 
+                             target="_blank" 
+                             rel="noopener noreferrer"
+                             className="hover:text-white transition-colors flex items-center gap-1 group/link"
+                           >
+                             {item.institution}
+                             <ExternalLink size={12} className="opacity-50 group-hover/link:opacity-100 transition-opacity" />
+                           </a>
+                         ) : (
+                           <span>{item.institution}</span>
+                         )}
                       </div>
+
                       <p className="text-slate-400 text-sm leading-relaxed mb-6">
                         {item.description}
                       </p>
@@ -190,7 +205,6 @@ export function Educacion() {
                               hover:bg-slate-800/60 hover:border-slate-600 transition-colors cursor-default
                             "
                           >
-                            {/* Renderizado condicional: Logo o Icono Fallback */}
                             {logoUrl ? (
                               <img src={logoUrl} alt={tag} className="w-3.5 h-3.5 opacity-80" />
                             ) : (
@@ -241,7 +255,6 @@ export function Educacion() {
                     whileHover={{ y: -5 }}
                     className={`group relative p-5 rounded-xl bg-slate-900/50 border border-slate-800 transition-all duration-300 ${cert.color} cursor-default overflow-hidden`}
                   >
-                    {/* Brillo al pasar el ratón */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     
                     <div className="relative z-10">
@@ -294,7 +307,7 @@ function TiltCard({ children, gradient }: { children: React.ReactNode, gradient:
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        rotateX: useTransform(y, [-0.5, 0.5], [5, -5]), // Ajusta la intensidad de rotación
+        rotateX: useTransform(y, [-0.5, 0.5], [5, -5]), 
         rotateY: useTransform(x, [-0.5, 0.5], [-5, 5]),
         transformStyle: "preserve-3d",
       }}
@@ -306,9 +319,7 @@ function TiltCard({ children, gradient }: { children: React.ReactNode, gradient:
         style={{ transform: "translateZ(20px)" }}
         className="relative h-full rounded-2xl bg-[#0e1625]/90 border border-slate-700/50 backdrop-blur-xl shadow-2xl overflow-hidden group"
       >
-        {/* Efecto de brillo (Sheen) */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-        
         {children}
       </div>
     </motion.div>

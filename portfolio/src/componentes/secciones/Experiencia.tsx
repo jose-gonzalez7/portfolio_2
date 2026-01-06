@@ -62,7 +62,7 @@ const experienceData = [
   },
   {
     period: "Feb 2026 - Jun 2026",
-    title: "Ingeniero de Automatización & IA",
+    title: "Desarrollador de Automatizaciones & IA",
     company: "Radiokable",
     link: "https://radiokable.net/", // ENLACE AÑADIDO
     description: [
@@ -149,7 +149,7 @@ export function Experiencia() {
                       
                       {item.active ? (
                         <div className={`shrink-0 px-3 py-1 rounded-full bg-${item.color}-500/10 border border-${item.color}-500/20 text-${item.color}-400 text-[10px] font-bold uppercase tracking-wider shadow-[0_0_10px_rgba(0,0,0,0.2)] backdrop-blur-md`}>
-                          Active
+                          Activo
                         </div>
                       ) : (
                         <div className={`shrink-0 p-2 rounded-lg bg-white/5 text-slate-400 group-hover:bg-${item.color}-500 group-hover:text-white transition-all duration-300`}>
