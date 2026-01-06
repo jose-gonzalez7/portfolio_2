@@ -15,7 +15,7 @@ import {
   ExternalLink 
 } from 'lucide-react';
 
-// ─── 1. ICONOS SVG NATIVOS (Optimizado) ───
+// ─── 1. ICONOS SVG NATIVOS (Sin cambios, funcionan bien) ───
 const BrandIcons: Record<string, React.ReactNode> = {
   "React": (
     <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-[#61DAFB]"><path d="M12 21.317a9.317 9.317 0 1 0 0-18.634 9.317 9.317 0 0 0 0 18.634z" fill="none"></path><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 17.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z" fill="none"></path><path d="M12 10.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path><circle cx="12" cy="12" r="2"></circle><g stroke="currentColor" strokeWidth="1" fill="none"><ellipse rx="10" ry="4.5" cx="12" cy="12"></ellipse><ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)"></ellipse><ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)"></ellipse></g></svg>
@@ -94,8 +94,15 @@ const experienceData = [
 
 export function Experiencia() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const lineHeight = useTransform(scrollYProgress, [0, 0.5], ["0%", "100%"]);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // OPTIMIZACIÓN CLAVE: Usar 'scaleY' en lugar de 'height'
+  // Esto evita el 'layout thrashing' que causa el lag en móviles
+  const scaleY = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
   return (
     <section id="experiencia" ref={containerRef} className="relative pt-20 pb-32 overflow-hidden bg-[#0b1220]">
@@ -108,19 +115,36 @@ export function Experiencia() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center mb-24 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6 backdrop-blur-md">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6 backdrop-blur-md"
+          >
             <Activity size={16} className="text-indigo-400" />
             <span className="text-xs font-bold text-indigo-300 uppercase tracking-widest">Career Path</span>
           </motion.div>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-4xl md:text-6xl font-black text-white mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ delay: 0.1 }} 
+            className="text-4xl md:text-6xl font-black text-white mb-6"
+          >
             Experiencia <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400 animate-gradient-x">Profesional</span>
           </motion.h2>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
+          
           <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-800 md:-translate-x-1/2 rounded-full" />
-          <motion.div style={{ height: lineHeight }} className="absolute left-[20px] md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-cyan-500 via-violet-500 to-transparent md:-translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.6)] z-10" />
+          
+          {/* LÍNEA ANIMADA OPTIMIZADA: Usa scaleY desde arriba (origin-top) */}
+          <motion.div 
+            style={{ scaleY, transformOrigin: "top" }}
+            className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-500 via-violet-500 to-transparent md:-translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.6)] z-10"
+          />
 
           {experienceData.map((item, index) => (
             <div key={index} className={`relative flex flex-col md:flex-row gap-8 mb-24 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
@@ -166,7 +190,6 @@ export function Experiencia() {
                       ))}
                     </ul>
 
-                    {/* TAGS */}
                     <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                       {item.tags.map(tag => {
                         let iconNode: React.ReactNode;
@@ -243,7 +266,6 @@ function TechCard({ children, color, active }: { children: React.ReactNode, colo
   const ref = useRef<HTMLDivElement>(null);
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
-    // Calculamos solo si es necesario, pero el truco real está en deshabilitar el estilo en CSS/Media Query
     const rect = event.currentTarget.getBoundingClientRect();
     const xPct = (event.clientX - rect.left) / rect.width - 0.5;
     const yPct = (event.clientY - rect.top) / rect.height - 0.5;
@@ -261,15 +283,11 @@ function TechCard({ children, color, active }: { children: React.ReactNode, colo
       initial={{ opacity: 0, y: 50 }} 
       whileInView={{ opacity: 1, y: 0 }} 
       viewport={{ once: true, margin: "-50px" }}
-      // 'transform-gpu' fuerza al navegador a usar la aceleración de hardware
       className="relative h-full transition-all duration-200 ease-out group transform-gpu"
-      // Solo aplicamos la rotación en pantallas medianas o grandes (md:)
       style={{ 
         transformStyle: "preserve-3d",
       }}
     >
-      {/* Aplicamos la rotación manualmente en el div interno solo si NO es móvil mediante CSS classes si fuera posible, 
-          pero como usamos motion style, la optimización principal es quitar el backdrop-blur */}
       <motion.div
          style={{ 
             rotateX: useTransform(y, [-0.5, 0.5], [7, -7]), 
@@ -279,11 +297,6 @@ function TechCard({ children, color, active }: { children: React.ReactNode, colo
       >
           <div className={`absolute inset-0 rounded-2xl bg-${color}-500/20 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
           
-          {/* AQUÍ ESTÁ EL CAMBIO CLAVE DE RENDIMIENTO:
-              - backdrop-blur-none en móvil
-              - md:backdrop-blur-xl en escritorio
-              - Fondo más opaco en móvil (bg-opacity-95) para compensar la falta de blur
-          */}
           <div 
             style={{ transform: "translateZ(20px)" }} 
             className={`

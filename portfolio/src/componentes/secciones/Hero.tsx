@@ -201,7 +201,7 @@ export function Hero() {
            >
              <SocialLink icon={<GithubIcon />} label="GitHub" href="https://github.com/jose-gonzalez7" />
              <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://linkedin.com/in/jose-antonio-gonzalez" />
-             <SocialLink icon={<MailIcon />} label="Email" href="mailto:tu@email.com" />
+             <SocialLink icon={<MailIcon />} label="Email" href="mailto:jgonzalezroman7@gmail.com" />
           </motion.div>
 
         </div>
