@@ -4,7 +4,6 @@ import {
   Calendar, 
   CheckCircle2, 
   ArrowUpRight, 
-  Laptop, 
   Code2,
   Activity,
   Globe,
