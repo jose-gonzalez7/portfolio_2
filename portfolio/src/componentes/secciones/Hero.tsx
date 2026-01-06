@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useTransform, useMotionValue, useMotionTemplate } from "framer-motion";
+import { motion, useTransform, useMotionValue, useMotionTemplate, animate } from "framer-motion";
 
 // ─── ICONOS ───
-// ─── ICONOS CORREGIDOS (Aceptan className) ───
+// He añadido ArrowDownIcon para el nuevo botón
+const ArrowDownIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>;
+
 const RocketIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>;
-
 const GithubIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 4 3c-1.25.5-2.5 1-3 1.5 0 3 .15 4.5 1.5 4.5.3 1.5 0 2 .5 3.5 0 1 .5 2.5 1 3.5-1.5 0-3 1.5-3 3.5 0 1 .5 2 1.5 2 1.5 2 1.5 3.5 1.5 4.5v4"/></svg>;
-
 const LinkedinIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
-
 const MailIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
-
-// ESTE ES EL QUE CAUSABA EL ERROR PRINCIPAL:
 const TerminalIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>;
+
 // ─── COMPONENTE TIPO ESCRITURA (TYPEWRITER) ───
 const CodeBlockTypewriter = () => {
   const codeString = `const Developer = {
@@ -172,22 +170,25 @@ export function Hero() {
             Transformo ideas abstractas en <span className="text-white font-medium">arquitecturas seguras</span>. Especialista Full Stack obsesionado con el rendimiento, la escalabilidad y la ciberseguridad.
           </motion.p>
           
-          {/* BOTONES PREMIUM */}
+          {/* ─── BOTÓN ÚNICO INCREÍBLE ─── */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-5 pt-6 justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row gap-5 pt-8 justify-center lg:justify-start"
           >
-            <a href="#proyectos" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-[#0b1220] px-8 py-1 text-sm font-bold text-white backdrop-blur-3xl transition-all hover:bg-slate-900">
-                Ver Proyectos 🚀
-              </span>
-            </a>
-            
-            <a href="#contacto" className="inline-flex h-14 items-center justify-center rounded-xl border border-slate-800 bg-transparent px-8 text-sm font-bold text-slate-300 transition-colors hover:bg-slate-800 hover:text-white">
-              Contáctame
+             {/* Este enlace apunta a la siguiente sección (ajusta #stack o el id que prefieras) */}
+             <a href="#educacion" className="group relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 w-full sm:w-auto">
+               {/* Animación del borde giratorio */}
+               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+               
+               {/* Contenido del botón */}
+               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 group-hover:scale-[0.99]">
+                 <span className="flex items-center gap-2">
+                    Saber más
+                    <ArrowDownIcon className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
+                 </span>
+               </span>
             </a>
           </motion.div>
           
