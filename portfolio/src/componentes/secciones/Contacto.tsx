@@ -18,7 +18,7 @@ export function Contacto() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hola@devportfolio.com"); // PON AQUÍ TU EMAIL REAL
+    navigator.clipboard.writeText("jgonzalezroman7@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -30,7 +30,7 @@ export function Contacto() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSent(true);
-      setTimeout(() => setIsSent(false), 3000); // Resetear después de 3s
+      setTimeout(() => setIsSent(false), 3000); 
       setFormState({ name: '', email: '', message: '' });
     }, 2000);
   };
@@ -41,7 +41,6 @@ export function Contacto() {
       {/* ─── FONDO AMBIENTAL ─── */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
-        {/* Glow púrpura para diferenciar la sección final */}
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] translate-y-1/2 translate-x-1/2" />
       </div>
 
@@ -51,7 +50,9 @@ export function Contacto() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* ─── COLUMNA IZQUIERDA: INFORMACIÓN ─── */}
-          <div>
+          {/* CORRECCIÓN: Flex column y items-center para centrar en móvil, lg:items-start para escritorio */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +84,7 @@ export function Contacto() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-slate-400 text-lg mb-12 max-w-md"
+              className="text-slate-400 text-lg mb-12 max-w-md mx-auto lg:mx-0"
             >
               ¿Tienes un proyecto en mente o quieres auditar la seguridad de tu sistema? Estoy listo para recibir la transmisión.
             </motion.p>
@@ -94,37 +95,48 @@ export function Contacto() {
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.3 }}
-               className="mb-8"
+               className="mb-10 w-full flex justify-center lg:justify-start"
             >
                <button 
                  onClick={handleCopyEmail}
-                 className="group relative flex items-center gap-4 p-4 pr-6 rounded-2xl bg-[#0e1625] border border-slate-800 hover:border-purple-500/50 transition-all duration-300 w-full md:w-auto text-left overflow-hidden"
+                 // CORRECCIÓN: Eliminado overflow-hidden del botón padre para evitar cortes de sombra, 
+                 // añadido max-w para que no se estire demasiado en tablet
+                 className="group relative flex items-center gap-4 p-3 md:p-4 pr-6 rounded-2xl bg-[#0e1625] border border-slate-800 hover:border-purple-500/50 transition-all duration-300 w-full max-w-md lg:w-auto text-left shadow-lg hover:shadow-purple-500/10"
                >
-                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                 {/* Fondo hover interno */}
+                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
                  
-                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 transition-transform">
-                   <Mail className="w-6 h-6 text-purple-400" />
-                 </div>
-                 <div className="flex-1">
-                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-0.5">Correo Electrónico</p>
-                   <p className="text-white font-mono text-lg truncate">jgonzalezroman7@gmail.com</p>
+                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 transition-transform shrink-0">
+                   <Mail className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                  </div>
                  
-                 <div className="relative">
+                 <div className="flex-1 min-w-0 overflow-hidden">
+                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-0.5 text-left">Correo Electrónico</p>
+                   {/* CORRECCIÓN: truncate para que no rompa el layout, text-sm en movil para que quepa */}
+                   <p className="text-white font-mono text-sm md:text-lg truncate text-left">jgonzalezroman7@gmail.com</p>
+                 </div>
+                 
+                 <div className="relative w-6 h-6 flex items-center justify-center shrink-0">
                    <AnimatePresence mode='wait'>
                      {copied ? (
                        <motion.div 
                          key="check"
-                         initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                         className="text-emerald-400"
+                         initial={{ scale: 0, opacity: 0 }} 
+                         animate={{ scale: 1, opacity: 1 }} 
+                         exit={{ scale: 0, opacity: 0 }}
+                         transition={{ duration: 0.2 }}
+                         className="text-emerald-400 absolute"
                        >
                          <Check size={20} />
                        </motion.div>
                      ) : (
                        <motion.div 
                          key="copy"
-                         initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                         className="text-slate-500 group-hover:text-white"
+                         initial={{ scale: 0, opacity: 0 }} 
+                         animate={{ scale: 1, opacity: 1 }} 
+                         exit={{ scale: 0, opacity: 0 }}
+                         transition={{ duration: 0.2 }}
+                         className="text-slate-500 group-hover:text-white absolute"
                        >
                          <Copy size={20} />
                        </motion.div>
@@ -140,13 +152,14 @@ export function Contacto() {
                whileInView={{ opacity: 1 }}
                viewport={{ once: true }}
                transition={{ delay: 0.4 }}
-               className="flex gap-4"
+               // CORRECCIÓN: Centrado en móvil
+               className="flex items-center gap-4 justify-center lg:justify-start"
             >
-               <SocialBtn href="#" icon={<Github size={20} />} />
-               <SocialBtn href="#" icon={<Linkedin size={20} />} />
-               <div className="h-12 w-[1px] bg-slate-800 mx-2" />
+               <SocialBtn href="https://github.com/jose-gonzalez7" icon={<Github size={20} />} />
+               <SocialBtn href="https://linkedin.com/in/jose-antonio-gonzalez" icon={<Linkedin size={20} />} />
+               <div className="h-8 w-[1px] bg-slate-800 mx-2" />
                <div className="flex items-center gap-2 text-slate-500 text-sm">
-                  <MapPin size={16} />
+                  <MapPin size={16} className="text-purple-400" />
                   <span>España / Granada</span>
                </div>
             </motion.div>
@@ -157,7 +170,7 @@ export function Contacto() {
              initial={{ opacity: 0, scale: 0.95 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
-             className="relative"
+             className="relative mt-8 lg:mt-0"
           >
              {/* Decoración detrás del form */}
              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl opacity-20 blur-lg" />
@@ -175,7 +188,7 @@ export function Contacto() {
                       <Terminal size={12} />
                       <span>contact.sh</span>
                    </div>
-                   <div className="w-8" /> {/* Espaciador para centrar */}
+                   <div className="w-8" />
                 </div>
 
                 {/* Formulario */}
@@ -261,7 +274,7 @@ export function Contacto() {
 
 function InputGroup({ label, placeholder, type = "text", value, onChange }: { label: string, placeholder: string, type?: string, value: string, onChange: (e: any) => void }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 text-left">
        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">{label}</label>
        <div className="relative group">
           <input 
@@ -271,7 +284,6 @@ function InputGroup({ label, placeholder, type = "text", value, onChange }: { la
             className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3.5 text-slate-300 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-slate-600"
             placeholder={placeholder}
           />
-          {/* Línea de brillo inferior animada */}
           <div className="absolute bottom-0 left-2 right-2 h-[1px] bg-purple-500 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500" />
        </div>
     </div>
@@ -282,6 +294,8 @@ function SocialBtn({ href, icon }: { href: string, icon: React.ReactNode }) {
   return (
     <a 
       href={href} 
+      target="_blank"
+      rel="noopener noreferrer"
       className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-purple-500/50 hover:bg-purple-500/10 transition-all hover:-translate-y-1"
     >
       {icon}
