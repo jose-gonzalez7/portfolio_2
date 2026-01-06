@@ -9,6 +9,7 @@ import { Contacto } from "../componentes/secciones/Contacto"
 
 export function Home() {
   return (
+    
     <div className="h-[100dvh] flex flex-col bg-[#0b1220] overflow-hidden">
       <Navbar />
 

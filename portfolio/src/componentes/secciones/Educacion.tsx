@@ -51,8 +51,8 @@ const educationData = [
     period: "2022 - 2024",
     title: "Desarrollo Multiplataforma",
     institution: "CES Cristo Rey",
-    description: "Fundamentos sólidos de ingeniería de software, algoritmos complejos y gestión eficiente de bases de datos.",
-    tags: ["Java", "C++", "SQL Avanzado"],
+    description: "Inicié mi camino dominando la gestión de memoria con C++, para luego especializarme en arquitecturas robustas y programación concurrente con Java.",
+    tags: ["C++", "Java Multihilo", "SQL Avanzado"],
     icon: <Smartphone className="w-6 h-6 text-purple-400" />,
     color: "purple",
     gradient: "from-purple-500/20 to-pink-500/5"
@@ -127,7 +127,7 @@ export function Educacion() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight"
           >
-            Nivel <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 animate-gradient-x">Desbloqueado</span>
+            Continuo  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 animate-gradient-x">Aprendizaje</span>
           </motion.h2>
           
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
