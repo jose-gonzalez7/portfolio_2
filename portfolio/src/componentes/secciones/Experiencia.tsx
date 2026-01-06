@@ -4,6 +4,7 @@ import {
   Calendar, 
   CheckCircle2, 
   ArrowUpRight, 
+  Laptop, 
   Code2,
   Activity,
   Globe,
@@ -12,10 +13,10 @@ import {
   Cloud,
   Database,
   Terminal,
-  ExternalLink // Icono para indicar enlace externo
+  ExternalLink 
 } from 'lucide-react';
 
-// ─── 1. ICONOS SVG NATIVOS (BULLETPROOF) ───
+// ─── 1. ICONOS SVG NATIVOS (Optimizado) ───
 const BrandIcons: Record<string, React.ReactNode> = {
   "React": (
     <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-[#61DAFB]"><path d="M12 21.317a9.317 9.317 0 1 0 0-18.634 9.317 9.317 0 0 0 0 18.634z" fill="none"></path><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 17.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z" fill="none"></path><path d="M12 10.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path><circle cx="12" cy="12" r="2"></circle><g stroke="currentColor" strokeWidth="1" fill="none"><ellipse rx="10" ry="4.5" cx="12" cy="12"></ellipse><ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)"></ellipse><ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)"></ellipse></g></svg>
@@ -43,13 +44,13 @@ const BrandIcons: Record<string, React.ReactNode> = {
   )
 };
 
-// ─── DATOS CON ENLACES ───
+// ─── DATOS ───
 const experienceData = [
   {
     period: "Nov 2025 - Actualidad",
     title: "Full Stack Architect & Developer",
     company: "THIELMANN",
-    link: "https://www.thielmann.com/en/", // ENLACE AÑADIDO
+    link: "https://www.thielmann.com/en/",
     description: [
       "Diseño y construcción desde cero de una plataforma Cliente-Servidor para la gestión integral de líneas de producción.",
       "Arquitectura backend robusta utilizando Node.js + Prisma ORM sobre PostgreSQL para garantizar integridad de datos.",
@@ -62,9 +63,9 @@ const experienceData = [
   },
   {
     period: "Feb 2026 - Jun 2026",
-    title: "Desarrollador de Automatizaciones & IA",
+    title: "Ingeniero de Automatización & IA",
     company: "Radiokable",
-    link: "https://radiokable.net/", // ENLACE AÑADIDO
+    link: "https://radiokable.net/",
     description: [
       "Desarrollo de pipelines de automatización inteligente para optimizar flujos de trabajo internos.",
       "Implementación de agentes de IA para el análisis predictivo y gestión de datos masivos.",
@@ -79,7 +80,7 @@ const experienceData = [
     period: "2024",
     title: "Desarrollador de Software",
     company: "SM Services",
-    link: "https://sm-services.es/?lang=en", // ENLACE AÑADIDO
+    link: "https://sm-services.es/?lang=en",
     description: [
       "Mantenimiento evolutivo y correctivo de aplicaciones cloud de alta disponibilidad.",
       "Desarrollo de nuevas funcionalidades full-stack, asegurando la escalabilidad del código.",
@@ -100,10 +101,10 @@ export function Experiencia() {
   return (
     <section id="experiencia" ref={containerRef} className="relative pt-20 pb-32 overflow-hidden bg-[#0b1220]">
       
-      {/* Fondo */}
+      {/* Fondo estático para rendimiento móvil */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
-        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2 hidden md:block" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
@@ -132,7 +133,6 @@ export function Experiencia() {
                       <div className="flex flex-col pr-2">
                         <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
                         
-                        {/* ─── EMPRESA CON ENLACE ─── */}
                         <div className={`text-sm font-medium flex items-center gap-2 text-${item.color}-400 mt-1`}>
                           {item.icon}
                           <a 
@@ -167,7 +167,7 @@ export function Experiencia() {
                       ))}
                     </ul>
 
-                    {/* TAGS CON AJUSTES ANTI-ROTURA */}
+                    {/* TAGS */}
                     <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                       {item.tags.map(tag => {
                         let iconNode: React.ReactNode;
@@ -237,12 +237,14 @@ export function Experiencia() {
   );
 }
 
+// ─── OPTIMIZACIÓN MÓVIL EN TechCard ───
 function TechCard({ children, color, active }: { children: React.ReactNode, color: string, active: boolean }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const ref = useRef<HTMLDivElement>(null);
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    // Calculamos solo si es necesario, pero el truco real está en deshabilitar el estilo en CSS/Media Query
     const rect = event.currentTarget.getBoundingClientRect();
     const xPct = (event.clientX - rect.left) / rect.width - 0.5;
     const yPct = (event.clientY - rect.top) / rect.height - 0.5;
@@ -254,17 +256,48 @@ function TechCard({ children, color, active }: { children: React.ReactNode, colo
 
   return (
     <motion.div
-      ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
-      style={{ rotateX: useTransform(y, [-0.5, 0.5], [7, -7]), rotateY: useTransform(x, [-0.5, 0.5], [-7, 7]), transformStyle: "preserve-3d" }}
-      className="relative h-full transition-all duration-200 ease-out group"
+      ref={ref} 
+      onMouseMove={handleMouseMove} 
+      onMouseLeave={handleMouseLeave}
+      initial={{ opacity: 0, y: 50 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true, margin: "-50px" }}
+      // 'transform-gpu' fuerza al navegador a usar la aceleración de hardware
+      className="relative h-full transition-all duration-200 ease-out group transform-gpu"
+      // Solo aplicamos la rotación en pantallas medianas o grandes (md:)
+      style={{ 
+        transformStyle: "preserve-3d",
+      }}
     >
-      <div className={`absolute inset-0 rounded-2xl bg-${color}-500/20 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-      <div style={{ transform: "translateZ(20px)" }} className={`relative h-full rounded-2xl border backdrop-blur-xl shadow-xl overflow-hidden ${active ? `bg-[#0e1625]/90 border-${color}-500/30` : "bg-[#0e1625]/80 border-slate-800"}`}>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-        {children}
-      </div>
+      {/* Aplicamos la rotación manualmente en el div interno solo si NO es móvil mediante CSS classes si fuera posible, 
+          pero como usamos motion style, la optimización principal es quitar el backdrop-blur */}
+      <motion.div
+         style={{ 
+            rotateX: useTransform(y, [-0.5, 0.5], [7, -7]), 
+            rotateY: useTransform(x, [-0.5, 0.5], [-7, 7])
+         }}
+         className="w-full h-full"
+      >
+          <div className={`absolute inset-0 rounded-2xl bg-${color}-500/20 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+          
+          {/* AQUÍ ESTÁ EL CAMBIO CLAVE DE RENDIMIENTO:
+              - backdrop-blur-none en móvil
+              - md:backdrop-blur-xl en escritorio
+              - Fondo más opaco en móvil (bg-opacity-95) para compensar la falta de blur
+          */}
+          <div 
+            style={{ transform: "translateZ(20px)" }} 
+            className={`
+              relative h-full rounded-2xl border shadow-xl overflow-hidden
+              backdrop-blur-none md:backdrop-blur-xl 
+              ${active ? `bg-[#0e1625]/95 md:bg-[#0e1625]/90 border-${color}-500/30` : "bg-[#0e1625]/95 md:bg-[#0e1625]/80 border-slate-800"}
+            `}
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            {children}
+          </div>
+      </motion.div>
     </motion.div>
   );
 }
