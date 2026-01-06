@@ -20,20 +20,17 @@ export function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
-    if (latest > 50) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-
-    if (latest > previous && latest > 150) {
-      setVisible(false);
-    } else {
-      setVisible(true);
-    }
+    setIsScrolled(latest > 50);
+    setVisible(!(latest > previous && latest > 150));
   });
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
     const handleScroll = () => {
       const sections = navLinks.map(link => link.href.substring(1))
       const current = sections.find(section => {
@@ -50,41 +47,42 @@ export function Navbar() {
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [isOpen])
 
-  // ─── OPTIMIZACIÓN IOS: Cambiamos scaleY por Opacity/Translate ───
-  // ScaleY + Blur es muy pesado para Safari. TranslateY es nativo de GPU.
+  // ─── VARIANTES ANIMACIÓN (FIX TYPESCRIPT APLICADO) ───
+  
   const menuVars = {
     initial: { 
       y: "-100%", 
-      opacity: 0 
+      opacity: 1 
     },
     animate: { 
       y: "0%", 
       opacity: 1,
       transition: { 
         duration: 0.4, 
-        ease: [0.33, 1, 0.68, 1] as const // Ease out cubic (muy suave)
+        ease: [0.22, 1, 0.36, 1] as const 
       }
     },
     exit: { 
       y: "-100%", 
-      opacity: 0,
+      opacity: 1,
       transition: { 
         duration: 0.3, 
-        ease: [0.33, 1, 0.68, 1] as const 
+        ease: [0.22, 1, 0.36, 1] as const 
       }
     }
   }
 
   const containerVars = {
-    initial: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
-    open: { transition: { delayChildren: 0.2, staggerChildren: 0.05, staggerDirection: 1 } }
+    initial: { transition: { staggerChildren: 0.05 } },
+    open: { transition: { delayChildren: 0.3, staggerChildren: 0.05 } }
   }
 
   const linkVars = {
-    initial: { y: 30, opacity: 0, transition: { duration: 0.3, ease: [0.37, 0, 0.63, 1] as const } },
-    open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0, 0.55, 0.45, 1] as const } }
+    initial: { y: 20, opacity: 0 },
+    // FIX TS: Añadido 'as const' a "easeOut"
+    open: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" as const } }
   }
 
   return (
@@ -202,18 +200,21 @@ export function Navbar() {
             initial="initial"
             animate="animate"
             exit="exit"
-            // FIX: "will-change-transform" ayuda a Safari a preparar la animación
             className="fixed inset-0 z-40 bg-[#0b1220] origin-top md:hidden will-change-transform"
           >
-             {/* Fondo Cibernético (Estático para rendimiento) */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
+            {/* Fondo Limpio (GPU Friendly) */}
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px]" />
+               <div 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
+                  style={{
+                    background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, rgba(11,18,32,0) 70%)'
+                  }}
+               />
             </div>
 
             <div className="flex flex-col h-full justify-center px-8 relative z-10">
               
-              {/* Enlaces Principales */}
               <motion.div 
                 variants={containerVars} 
                 initial="initial" 
@@ -238,26 +239,25 @@ export function Navbar() {
                 ))}
               </motion.div>
 
-              {/* Footer del Menú: Botón CV + Redes */}
               <motion.div 
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ opacity: 1, y: 0 }}
                  transition={{ delay: 0.4 }}
                  className="mt-12 flex flex-col gap-8"
               >
-                 {/* Botón Meteoro Grande */}
+                 {/* FIX VISUAL: Añadido 'relative z-10' al span del texto para que salga ENCIMA del brillo.
+                 */}
                  <a href="/cv.pdf" download className="group relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none w-full">
-                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-[#0b1220] px-8 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900">
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] z-0" />
+                    <span className="relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-[#0b1220] px-8 py-1 text-lg font-bold text-white transition-all group-hover:bg-slate-900">
                       Descargar CV 🚀
                     </span>
                  </a>
 
-                 {/* Redes Sociales */}
                  <div className="flex justify-center gap-8 border-t border-white/10 pt-8">
-                    <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors"><Github size={24} /></a>
-                    <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors"><Linkedin size={24} /></a>
-                    <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors"><Mail size={24} /></a>
+                    <a href="https://github.com/jose-gonzalez7" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Github size={24} /></a>
+                    <a href="https://linkedin.com/in/jose-antonio-gonzalez" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Linkedin size={24} /></a>
+                    <a href="mailto:tu@email.com" className="text-slate-400 hover:text-blue-400 transition-colors"><Mail size={24} /></a>
                  </div>
               </motion.div>
 
