@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useTransform, useMotionValue, useMotionTemplate, animate } from "framer-motion";
+import { motion, useTransform, useMotionValue, useMotionTemplate } from "framer-motion";
 
 // ─── ICONOS ───
 // He añadido ArrowDownIcon para el nuevo botón
