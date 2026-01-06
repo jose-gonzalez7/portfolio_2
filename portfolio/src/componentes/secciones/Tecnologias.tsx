@@ -49,7 +49,7 @@ const techStack = [
 
 export function Tecnologias() {
   return (
-    <section className="relative pt-5 pb-20 md:pb-32 bg-[#0b1220] overflow-hidden">
+    <section id="tecnologias" className="relative pt-5 pb-20 md:pb-32 bg-[#0b1220] overflow-hidden">
       
       {/* Fondo sutil tipo matriz */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
