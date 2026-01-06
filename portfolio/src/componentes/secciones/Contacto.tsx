@@ -63,7 +63,7 @@ export function Contacto() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
               </span>
-              <span className="text-xs font-bold text-purple-300 uppercase tracking-widest">Open to Work</span>
+              <span className="text-xs font-bold text-purple-300 uppercase tracking-widest">iniciar comunicación</span>
             </motion.div>
 
             <motion.h2 
