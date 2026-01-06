@@ -52,27 +52,39 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Variantes para la animación del menú móvil (CON EL FIX DE TS APLICADO)
+  // ─── OPTIMIZACIÓN IOS: Cambiamos scaleY por Opacity/Translate ───
+  // ScaleY + Blur es muy pesado para Safari. TranslateY es nativo de GPU.
   const menuVars = {
-    initial: { scaleY: 0 },
+    initial: { 
+      y: "-100%", 
+      opacity: 0 
+    },
     animate: { 
-      scaleY: 1, 
-      transition: { duration: 0.5, ease: [0.12, 0, 0.39, 0] as const }
+      y: "0%", 
+      opacity: 1,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.33, 1, 0.68, 1] as const // Ease out cubic (muy suave)
+      }
     },
     exit: { 
-      scaleY: 0,
-      transition: { delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+      y: "-100%", 
+      opacity: 0,
+      transition: { 
+        duration: 0.3, 
+        ease: [0.33, 1, 0.68, 1] as const 
+      }
     }
   }
 
   const containerVars = {
-    initial: { transition: { staggerChildren: 0.09, staggerDirection: -1 } },
-    open: { transition: { delayChildren: 0.3, staggerChildren: 0.09, staggerDirection: 1 } }
+    initial: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+    open: { transition: { delayChildren: 0.2, staggerChildren: 0.05, staggerDirection: 1 } }
   }
 
   const linkVars = {
-    initial: { y: "30vh", transition: { duration: 0.5, ease: [0.37, 0, 0.63, 1] as const } },
-    open: { y: 0, transition: { duration: 0.7, ease: [0, 0.55, 0.45, 1] as const } }
+    initial: { y: 30, opacity: 0, transition: { duration: 0.3, ease: [0.37, 0, 0.63, 1] as const } },
+    open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0, 0.55, 0.45, 1] as const } }
   }
 
   return (
@@ -182,7 +194,7 @@ export function Navbar() {
         </nav>
       </motion.header>
 
-      {/* ─── MENÚ MÓVIL PREMIUM ─── */}
+      {/* ─── MENÚ MÓVIL OPTIMIZADO PARA IOS ─── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -190,10 +202,11 @@ export function Navbar() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 z-40 bg-[#0b1220] origin-top md:hidden"
+            // FIX: "will-change-transform" ayuda a Safari a preparar la animación
+            className="fixed inset-0 z-40 bg-[#0b1220] origin-top md:hidden will-change-transform"
           >
-             {/* Fondo Cibernético */}
-            <div className="absolute inset-0 z-0">
+             {/* Fondo Cibernético (Estático para rendimiento) */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px]" />
             </div>
@@ -229,7 +242,7 @@ export function Navbar() {
               <motion.div 
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ opacity: 1, y: 0 }}
-                 transition={{ delay: 0.5 }}
+                 transition={{ delay: 0.4 }}
                  className="mt-12 flex flex-col gap-8"
               >
                  {/* Botón Meteoro Grande */}
