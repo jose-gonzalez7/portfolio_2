@@ -10,7 +10,6 @@ import {
   FileCode,
   Sparkles,
   Terminal, // Fallback para cosas de código
-  Database  // Fallback para bases de datos
 } from 'lucide-react';
 
 // ─── MAPA DE LOGOS (Para Education Tags) ───
@@ -271,9 +270,6 @@ function TiltCard({ children, gradient }: { children: React.ReactNode, gradient:
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const ref = useRef<HTMLDivElement>(null);
-
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
     const rect = event.currentTarget.getBoundingClientRect();

@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import { 
-  Briefcase, 
   Calendar, 
   CheckCircle2, 
   ArrowUpRight, 
@@ -225,9 +224,6 @@ function TechCard({ children, color, active }: { children: React.ReactNode, colo
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const ref = useRef<HTMLDivElement>(null);
-
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
     const rect = event.currentTarget.getBoundingClientRect();

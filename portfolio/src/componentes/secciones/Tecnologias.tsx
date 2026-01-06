@@ -1,12 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { 
   Layout, 
   Server, 
   ShieldCheck, 
   Layers,
-  Lock,
-  ScanEye // Icono nuevo para el escáner
 } from 'lucide-react';
 
 // ─── DEFINICIÓN DEL ARSENAL TECNOLÓGICO ───

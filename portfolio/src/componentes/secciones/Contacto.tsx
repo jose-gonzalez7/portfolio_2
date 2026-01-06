@@ -9,7 +9,6 @@ import {
   Copy, 
   Check, 
   Terminal,
-  MessageSquare
 } from 'lucide-react';
 
 export function Contacto() {
