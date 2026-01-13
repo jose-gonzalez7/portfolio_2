@@ -28,7 +28,7 @@ const educationData = [
     title: "Especialidad en Ciberseguridad",
     institution: "IES Zaidin Vergeles",
     link: "https://www.ieszaidinvergeles.org/",
-    description: "Formación de élite en seguridad ofensiva (Red Team) y defensiva (Blue Team). Auditoría de sistemas y análisis forense.",
+    description: "Formación en seguridad ofensiva (Red Team) y defensiva (Blue Team). Auditoría de sistemas y análisis forense.",
     tags: ["Ethical Hacking", "SIEM/SOAR", "Cloud Security"],
     icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
     color: "emerald",

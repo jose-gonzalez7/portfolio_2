@@ -36,7 +36,7 @@ const experienceData = [
   },
   {
     period: "Feb 2026 - Jun 2026",
-    title: "Ingeniero de Automatización & IA",
+    title: "Full Stack Developer",
     company: "Radiokable",
     link: "https://radiokable.net/",
     description: [
@@ -51,7 +51,7 @@ const experienceData = [
   },
   {
     period: "2024",
-    title: "Desarrollador de Software",
+    title: "Software Developer",
     company: "SM Services",
     link: "https://sm-services.es/?lang=en",
     description: [
@@ -138,7 +138,7 @@ export function Experiencia() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6 backdrop-blur-md shadow-lg"
           >
             <Activity size={16} className="text-indigo-400" />
-            <span className="text-xs font-bold text-indigo-300 uppercase tracking-widest">Career Path</span>
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-widest">Trayectoria profesional</span>
           </motion.div>
           
           <motion.h2 
