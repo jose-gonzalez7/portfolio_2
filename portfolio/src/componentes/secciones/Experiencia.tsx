@@ -66,7 +66,7 @@ const experienceData = [
   },
 ];
 
-// ─── VARIANTES ANIMACIÓN (SIN BLUR PARA EVITAR FLICKER) ───
+// ─── VARIANTES ANIMACIÓN (SOLO TARJETAS) ───
 const cardVariants: Variants = {
   offscreen: (isEven) => ({
     y: 50,
@@ -74,7 +74,6 @@ const cardVariants: Variants = {
     x: typeof window !== 'undefined' && window.innerWidth > 768 ? (isEven ? -40 : 40) : 0,
     opacity: 0,
     scale: 0.9, 
-    // NOTA: Eliminado filter: "blur(10px)" para rendimiento
   }),
   onscreen: {
     y: 0,
@@ -168,18 +167,20 @@ export function Experiencia() {
           {experienceData.map((item, index) => {
             const isEven = index % 2 === 0;
             return (
-              <motion.div 
+              <div 
                 key={index} 
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, margin: "-100px" }}
-                custom={isEven}
-                variants={cardVariants}
                 className={`relative flex flex-col md:flex-row gap-8 mb-24 ${isEven ? "md:flex-row-reverse" : ""}`}
               >
                 
                 {/* TARJETA INTERACTIVA */}
-                <div className="md:w-1/2 ml-12 md:ml-0">
+                <motion.div 
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, margin: "-100px" }}
+                  custom={isEven}
+                  variants={cardVariants}
+                  className="md:w-1/2 ml-12 md:ml-0"
+                >
                   <TechCard color={item.color} active={item.active}>
                     <div className="p-6 md:p-8 relative z-10 h-full flex flex-col">
                       {/* Header Card */}
@@ -254,7 +255,7 @@ export function Experiencia() {
                       </div>
                     </div>
                   </TechCard>
-                </div>
+                </motion.div>
 
                 {/* NODO CENTRAL */}
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-10 h-10 flex items-center justify-center z-20">
@@ -273,20 +274,17 @@ export function Experiencia() {
                   </motion.div>
                 </div>
 
-                {/* FECHA LATERAL */}
+                {/* FECHA LATERAL (ESTÁTICA PARA EVITAR FLICKER) */}
                 <div className={`md:w-1/2 flex items-center ${isEven ? "md:justify-end" : "md:justify-start"} ml-12 md:ml-0 md:px-12`}>
-                  <motion.div 
-                    initial={{ opacity: 0, x: isEven ? 20 : -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
+                  <div 
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-mono font-semibold backdrop-blur-sm transition-all duration-300 ${item.active ? "bg-cyan-950/30 border-cyan-500/30 text-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.1)]" : "bg-slate-900/50 border-slate-800 text-slate-400"}`}
                   >
                     <Calendar size={14} />
                     {item.period}
                     {item.active && <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse ml-1"/>}
-                  </motion.div>
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
