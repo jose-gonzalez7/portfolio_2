@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion"
+// FIX: Importamos 'type Variants' para solucionar el error de tipos
+import { AnimatePresence, motion, useScroll, useMotionValueEvent, type Variants } from "framer-motion"
 import { Download, Menu, X, Terminal, Github, Linkedin, Mail } from "lucide-react"
 
 const navLinks = [
@@ -21,7 +22,7 @@ export function Navbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
     setIsScrolled(latest > 50);
-    // Lógica de esconder navbar: solo si bajamos y pasamos de 150px
+    // Lógica de esconder navbar
     setVisible(!(latest > previous && latest > 150));
   });
 
@@ -33,60 +34,73 @@ export function Navbar() {
     }
 
     const handleScroll = () => {
-      // 1. Calculamos el "punto de mira" (aprox 1/3 de la pantalla desde arriba)
-      // Esto hace que la sección cambie cuando visualmente ya estás entrando en ella
       const triggerPoint = window.scrollY + (window.innerHeight * 0.3);
 
-      // 2. Comprobamos límites de página
-      // Si estamos muy arriba -> Inicio
       if (window.scrollY < 50) {
         setActiveSection("Inicio");
         return;
       }
-      // Si estamos al final del todo -> Contacto
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
         setActiveSection("Contacto");
         return;
       }
 
-      // 3. Buscamos qué sección está ocupando el "punto de mira"
       for (const link of navLinks) {
         const section = document.getElementById(link.href.substring(1));
-        
         if (section) {
           const { offsetTop, offsetHeight } = section;
-          
-          // Si el punto de mira está DENTRO de la sección actual
           if (triggerPoint >= offsetTop && triggerPoint < offsetTop + offsetHeight) {
             setActiveSection(link.label);
-            break; // Ya la encontramos, dejamos de buscar
+            break; 
           }
         }
       }
     }
 
-    // Ejecutar al inicio por si recargamos a mitad de página
     handleScroll();
     
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isOpen])
 
-  // Variantes menú
-  const menuVars = {
+  // ─── VARIANTES ANIMACIÓN (FIX TYPESCRIPT) ───
+  
+  // Añadimos ': Variants' para que TS sepa que "ease" es correcto
+  const menuVars: Variants = {
     initial: { y: "-100%", opacity: 1 },
-    animate: { y: "0%", opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
-    exit: { y: "-100%", opacity: 1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }
+    animate: { 
+      y: "0%", 
+      opacity: 1, 
+      transition: { 
+        duration: 0.4, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    },
+    exit: { 
+      y: "-100%", 
+      opacity: 1, 
+      transition: { 
+        duration: 0.3, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    }
   }
 
-  const containerVars = {
+  const containerVars: Variants = {
     initial: { transition: { staggerChildren: 0.05 } },
     open: { transition: { delayChildren: 0.3, staggerChildren: 0.05 } }
   }
 
-  const linkVars = {
+  const linkVars: Variants = {
     initial: { y: 20, opacity: 0 },
-    open: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } }
+    open: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { 
+        duration: 0.4, 
+        ease: "easeOut" // Ahora TS sabe que este string es válido
+      } 
+    }
   }
 
   return (
@@ -245,7 +259,6 @@ export function Navbar() {
                           activeSection === link.label ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 pl-2" : "text-slate-300 hover:text-white"
                         }`}
                       >
-                         {/* Punto indicador móvil */}
                          {activeSection === link.label && (
                             <motion.span 
                                layoutId="active-dot-mobile"
