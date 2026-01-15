@@ -327,26 +327,26 @@ function TechCard({ children, color, active }: { children: React.ReactNode, colo
       onMouseMove={handleMouseMove} 
       onMouseLeave={handleMouseLeave}
       className="relative h-full group"
-      style={{ perspective: 1000 }} // Perspective en el contenedor
+      style={{ perspective: 1000 }} 
     >
       <motion.div
          style={{ 
            rotateX, 
            rotateY,
            transformStyle: "preserve-3d",
-           backfaceVisibility: "hidden", // CLAVE ANTI-FLICKER
-           willChange: "transform", // CLAVE PERFORMANCE
+           backfaceVisibility: "hidden", 
+           willChange: "transform", 
          }}
          className="w-full h-full"
       >
-          {/* Sombra suave optimizada */}
+          {/* Sombra suave  */}
           <div 
             className={`absolute inset-0 rounded-2xl bg-${color}-500/10 blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
             style={{ transform: "translateZ(-1px)" }} 
           />
           
           <div 
-            style={{ transform: "translateZ(1px)" }} // Elevamos el contenido muy poco
+            style={{ transform: "translateZ(1px)" }} 
             className={`
               relative h-full rounded-2xl border shadow-xl overflow-hidden
               backdrop-blur-xl bg-[#0e1625]/90

@@ -235,7 +235,7 @@ function InputGroup({ label, name, placeholder, type = "text", value, onChange }
        <div className="relative group">
           <input 
             type={type}
-            name={name} // Importante para EmailJS
+            name={name} 
             value={value}
             onChange={onChange}
             className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3.5 text-slate-300 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-slate-600"
