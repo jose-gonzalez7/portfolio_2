@@ -4,7 +4,6 @@ export function Footer() {
   return (
     // CAMBIO: fixed bottom-0 para que flote sobre el contenido
     <footer className="fixed bottom-0 left-0 w-full bg-[#0b1220]/70 backdrop-blur-md border-t border-white/5 z-50 px-6 sm:px-10">
-      {/* El gradiente debe ser absoluto respecto al footer */}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none" />
       
       <div className="relative w-full h-16 flex items-center justify-between">
