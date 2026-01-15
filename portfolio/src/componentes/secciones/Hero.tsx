@@ -200,7 +200,7 @@ export function Hero() {
              className="flex items-center justify-center lg:justify-start gap-4 pt-6 border-t border-slate-800/50 mt-4"
            >
              <SocialLink icon={<GithubIcon />} label="GitHub" href="https://github.com/jose-gonzalez7" />
-             <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://linkedin.com/in/jose-antonio-gonzalez" />
+             <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://www.linkedin.com/in/jgonzalezroman-dev/" />
              <SocialLink icon={<MailIcon />} label="Email" href="mailto:jgonzalezroman7@gmail.com" />
           </motion.div>
 

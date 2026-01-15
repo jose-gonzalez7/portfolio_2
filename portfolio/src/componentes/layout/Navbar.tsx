@@ -287,7 +287,7 @@ export function Navbar() {
 
                  <div className="flex justify-center gap-8 border-t border-white/10 pt-8">
                     <a href="https://github.com/jose-gonzalez7" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Github size={24} /></a>
-                    <a href="https://linkedin.com/in/jose-antonio-gonzalez" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Linkedin size={24} /></a>
+                    <a href="https://www.linkedin.com/in/jgonzalezroman-dev/" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Linkedin size={24} /></a>
                     <a href="mailto:jgonzalezroman7@gmail.com" className="text-slate-400 hover:text-blue-400 transition-colors"><Mail size={24} /></a>
                  </div>
               </motion.div>

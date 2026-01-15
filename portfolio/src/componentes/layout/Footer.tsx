@@ -21,7 +21,7 @@ export function Footer() {
         {/* BLOQUE DERECHO */}
         <div className="flex items-center gap-1">
           <SocialLink href="https://github.com/jose-gonzalez7" icon={<Github size={20}/>} />
-          <SocialLink href="https://linkedin.com/in/jose-antonio-gonz%C3%A1lez-rom%C3%A1n-5a7252317/" icon={<Linkedin size={20}/>} />
+          <SocialLink href="https://www.linkedin.com/in/jgonzalezroman-dev/" icon={<Linkedin size={20}/>} />
           <SocialLink href="mailto:jgonzalezroman7@gmail.com" icon={<Mail size={20}/>} />
         </div>
       </div>

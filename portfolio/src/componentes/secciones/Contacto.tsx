@@ -120,7 +120,7 @@ export function Contacto() {
 
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="flex items-center gap-4 justify-center lg:justify-start">
                <SocialBtn href="https://github.com/jose-gonzalez7" icon={<Github size={20} />} />
-               <SocialBtn href="https://linkedin.com/in/jose-antonio-gonzalez" icon={<Linkedin size={20} />} />
+               <SocialBtn href="https://www.linkedin.com/in/jgonzalezroman-dev/" icon={<Linkedin size={20} />} />
                <div className="h-8 w-[1px] bg-slate-800 mx-2" />
                <div className="flex items-center gap-2 text-slate-500 text-sm">
                   <MapPin size={16} className="text-purple-400" />
