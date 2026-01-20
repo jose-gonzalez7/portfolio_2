@@ -163,7 +163,7 @@ export function Contacto() {
                       
                       {/* Email: Atributo 'name="email"' para coincidir con EmailJS */}
                       <InputGroup 
-                         label="Frecuencia (Email)" 
+                         label="(Email)" 
                          name="email"
                          placeholder="tu@email.com" 
                          type="email"
@@ -173,7 +173,7 @@ export function Contacto() {
                    </div>
                    
                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Mensaje encriptado</label>
+                      <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Mensaje</label>
                       <textarea 
                         name="message" // Coincide con {{message}}
                         rows={4}
@@ -205,7 +205,7 @@ export function Contacto() {
                         ) : isSent ? (
                            <motion.div key="sent" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="flex items-center gap-2">
                              <Check size={20} />
-                             <span>¡Transmisión Enviada!</span>
+                             <span>¡Mensaje Enviado!</span>
                            </motion.div>
                         ) : (
                            <motion.div key="idle" initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="flex items-center gap-2">
