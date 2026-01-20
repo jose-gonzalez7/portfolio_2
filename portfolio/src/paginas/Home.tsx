@@ -17,16 +17,17 @@ export function Home() {
         
         {/* El Hero suele ir sin transición externa porque carga al inicio */}
         <Hero />
+
+        {/* Envolvemos Experiencia */}
+        <SectionTransition>
+          <Experiencia />
+        </SectionTransition>
         
         {/* Envolvemos Educación */}
         <SectionTransition>
           <Educacion />
         </SectionTransition>
-        
-        {/* Envolvemos Experiencia */}
-        <SectionTransition>
-          <Experiencia />
-        </SectionTransition>
+      
 
         {/* Envolvemos Tecnologías */}
         <SectionTransition>

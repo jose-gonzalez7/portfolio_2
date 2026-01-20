@@ -5,8 +5,8 @@ import { Download, Menu, X, Terminal, Github, Linkedin, Mail } from "lucide-reac
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
+    { label: "Experiencia", href: "#experiencia" },
   { label: "Educación", href: "#educacion" },
-  { label: "Experiencia", href: "#experiencia" },
   { label: "Tecnologías", href: "#tecnologias" },
   { label: "Contacto", href: "#contacto" },
 ]

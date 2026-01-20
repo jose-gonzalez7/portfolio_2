@@ -84,11 +84,11 @@ export function Contacto() {
 
             <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
               Iniciemos <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Protocolo de Comunicación.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Comunicación.</span>
             </motion.h2>
 
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-slate-400 text-lg mb-12 max-w-md mx-auto lg:mx-0">
-              ¿Tienes un proyecto en mente o quieres auditar la seguridad de tu sistema? Estoy listo para recibir la transmisión.
+              ¿Tienes un proyecto en mente o quieres auditar la seguridad de tu sistema?
             </motion.p>
 
             {/* Email Copy Button */}
