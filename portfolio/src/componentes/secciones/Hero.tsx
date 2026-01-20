@@ -178,7 +178,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-5 pt-8 justify-center lg:justify-start"
           >
              {/* Este enlace apunta a la siguiente sección (ajusta #stack o el id que prefieras) */}
-             <a href="#educacion" className="group relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 w-full sm:w-auto">
+             <a href="#experiencia" className="group relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 w-full sm:w-auto">
                {/* Animación del borde giratorio */}
                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                
