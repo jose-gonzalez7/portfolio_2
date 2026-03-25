@@ -21,6 +21,9 @@ export function Contacto() {
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const GITHUB_URL = import.meta.env.VITE_GITHUB_URL ?? 'https://github.com/jose-gonzalez7';
+  const LINKEDIN_URL =
+    import.meta.env.VITE_LINKEDIN_URL ?? 'https://www.linkedin.com/in/jgonzalezroman-dev/';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("jgonzalezroman7@gmail.com");
@@ -119,8 +122,8 @@ export function Contacto() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="flex items-center gap-4 justify-center lg:justify-start">
-               <SocialBtn href="https://github.com/jose-gonzalez7" icon={<Github size={20} />} />
-               <SocialBtn href="https://www.linkedin.com/in/jgonzalezroman-dev/" icon={<Linkedin size={20} />} />
+               <SocialBtn id="githubBoton" href={GITHUB_URL} icon={<Github size={20} />} />
+               <SocialBtn href={LINKEDIN_URL} icon={<Linkedin size={20} />} />
                <div className="h-8 w-[1px] bg-slate-800 mx-2" />
                <div className="flex items-center gap-2 text-slate-500 text-sm">
                   <MapPin size={16} className="text-purple-400" />
@@ -228,7 +231,21 @@ export function Contacto() {
 
 // ─── COMPONENTES AUXILIARES ───
 
-function InputGroup({ label, name, placeholder, type = "text", value, onChange }: { label: string, name: string, placeholder: string, type?: string, value: string, onChange: (e: any) => void }) {
+function InputGroup({
+  label,
+  name,
+  placeholder,
+  type = 'text',
+  value,
+  onChange,
+}: {
+  label: string
+  name: string
+  placeholder: string
+  type?: string
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}) {
   return (
     <div className="space-y-2 text-left">
        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">{label}</label>
@@ -247,9 +264,10 @@ function InputGroup({ label, name, placeholder, type = "text", value, onChange }
   );
 }
 
-function SocialBtn({ href, icon }: { href: string, icon: React.ReactNode }) {
+function SocialBtn({ href, icon, id }: { href: string; icon: React.ReactNode; id?: string }) {
   return (
     <a 
+      id={id}
       href={href} 
       target="_blank"
       rel="noopener noreferrer"
