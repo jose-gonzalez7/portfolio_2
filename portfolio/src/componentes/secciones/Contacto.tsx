@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 // 1. IMPORTAMOS EMAILJS
 import emailjs from '@emailjs/browser';
-import { 
-  Send, Mail, MapPin, Github, Linkedin, Copy, Check, Terminal,
+import {
+  Send, Mail, MapPin, Linkedin, Copy, Check, Terminal,
 } from 'lucide-react';
 
 export function Contacto() {
@@ -91,7 +91,7 @@ export function Contacto() {
             </motion.h2>
 
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-slate-400 text-lg mb-12 max-w-md mx-auto lg:mx-0">
-              ¿Tienes un proyecto en mente o quieres auditar la seguridad de tu sistema?
+              ¿Tienes un proyecto en mente? Estoy disponible para discutir arquitecturas escalables y soluciones full stack.
             </motion.p>
 
             {/* Email Copy Button */}
@@ -122,8 +122,7 @@ export function Contacto() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="flex items-center gap-4 justify-center lg:justify-start">
-               <SocialBtn id="githubBoton" href={GITHUB_URL} icon={<Github size={20} />} />
-               <SocialBtn href={LINKEDIN_URL} icon={<Linkedin size={20} />} />
+               <SocialBtn href="https://www.linkedin.com/in/jgonzalezroman-dev/" icon={<Linkedin size={20} />} />
                <div className="h-8 w-[1px] bg-slate-800 mx-2" />
                <div className="flex items-center gap-2 text-slate-500 text-sm">
                   <MapPin size={16} className="text-purple-400" />

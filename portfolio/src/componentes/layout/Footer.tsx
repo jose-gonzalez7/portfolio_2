@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
@@ -19,7 +19,6 @@ export function Footer() {
 
         {/* BLOQUE DERECHO */}
         <div className="flex items-center gap-1">
-          <SocialLink href="https://github.com/jose-gonzalez7" icon={<Github size={20}/>} />
           <SocialLink href="https://www.linkedin.com/in/jgonzalezroman-dev/" icon={<Linkedin size={20}/>} />
           <SocialLink href="mailto:jgonzalezroman7@gmail.com" icon={<Mail size={20}/>} />
         </div>
