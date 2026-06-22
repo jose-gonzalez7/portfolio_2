@@ -20,13 +20,13 @@
 
 | # | Sección | Componente | Estado |
 |---|---------|-----------|--------|
-| 1 | Navbar | `Navbar.tsx` | Actualizar anclas |
-| 2 | Hero | `Hero.tsx` | Reescribir completo |
-| 3 | THIELMANN Case Study | `ThielmannCaseStudy.tsx` | Crear desde cero |
-| 4 | Experiencia | `Experiencia.tsx` | Corregir contenido |
-| 5 | Stack técnico | `Tecnologias.tsx` | Reorganizar por capas |
-| 6 | Educación | `Educacion.tsx` | Limpiar certificaciones falsas |
-| 7 | Contacto | `Contacto.tsx` | Revisar |
+| 1 | Navbar | `Navbar.tsx` | ✅ |
+| 2 | Hero | `Hero.tsx` | ✅ Typewriter real + bio + CTA a #thielmann |
+| 3 | THIELMANN Case Study | `ThielmannCaseStudy.tsx` | ✅ Creada — métricas, arquitectura, funcionalidad, seguridad, stack |
+| 4 | Experiencia | `Experiencia.tsx` | ✅ THIELMANN con datos reales, Radiokable corregido |
+| 5 | Stack técnico | `Tecnologias.tsx` | ✅ |
+| 6 | Educación | `Educacion.tsx` | ✅ Certificaciones y Zaidín eliminados |
+| 7 | Contacto | `Contacto.tsx` | ✅ |
 
 ---
 
@@ -38,19 +38,25 @@
 Errores que pueden costar un recruiter si cruza portfolio con LinkedIn.
 
 **`Educacion.tsx`**
-- [ ] Eliminar certificaciones falsas: AWS Solutions Architect, Google Data Analytics, Meta Front-End Dev
-- [ ] Eliminar IES Zaidín Vergeles y todo lo relacionado con ciberseguridad como titulación
-- [ ] Eliminar el bloque `certificationsData` entero
+- [x] Eliminar certificaciones falsas: AWS Solutions Architect, Google Data Analytics, Meta Front-End Dev
+- [x] Eliminar IES Zaidín Vergeles y todo lo relacionado con ciberseguridad como titulación
+- [x] Eliminar el bloque `certificationsData` entero
 
 **`Hero.tsx`**
-- [ ] Quitar `'Ethical Hacking'` del typewriter
-- [ ] Quitar badge `"Online & Available"` (no está en búsqueda activa)
-- [ ] Quitar `"99% Secure"` del footer de la tarjeta terminal
+- [x] Quitar `'Ethical Hacking'` del typewriter
+- [x] Quitar badge `"Online & Available"` (no está en búsqueda activa)
+- [x] Quitar `"99% Secure"` del footer de la tarjeta terminal
+- [x] Typewriter actualizado con MES, users: 40, workstations: 120
+- [x] Bio alineada con spec: "Construyo software robusto, escalable y seguro..."
+- [x] CTA apunta a #thielmann en lugar de #experiencia
+- [x] Redes: solo LinkedIn + Email (sin GitHub)
 
 **`Experiencia.tsx`**
-- [ ] Corregir descripción de Radiokable: fuera "pipelines de IA / agentes de IA / análisis predictivo" — eso no es lo que hizo
-- [ ] Radiokable real: Flutter (RK Utility en App Store y Google Play), Node.js + Express + PostgreSQL, app PHP + MySQL para inspecciones
-- [ ] Título de THIELMANN: cambiar "Full Stack Architect & Developer" → "Full Stack Developer" (alineado con LinkedIn)
+- [x] THIELMANN: descripción alineada con spec — 120 puestos, 40 personas, 3 turnos, 15 tablets, microservicio documental, seguridad end-to-end (JWT, RBAC, fingerprinting, WAF, OWASP Top 10)
+- [x] THIELMANN: añadido Docker al stack de tags
+- [x] Radiokable: descripción real (Flutter + RK Utility en App Store/Google Play, Node.js + Express + PostgreSQL, PHP + MySQL)
+- [x] Radiokable: periodo corregido a "Feb - May 2026" (no Jun) + indicado "Prácticas"
+- [x] Título de THIELMANN: "Full Stack Developer" (alineado con LinkedIn)
 
 ---
 
