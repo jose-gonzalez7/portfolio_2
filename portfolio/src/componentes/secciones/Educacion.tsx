@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { 
-  ShieldCheck, Globe, Smartphone, Award, Cloud, BarChart, 
-  FileCode, Sparkles, Terminal, ExternalLink 
+import {
+  Globe, Smartphone, Sparkles, Terminal, ExternalLink
 } from 'lucide-react';
 
 // ─── MAPA DE LOGOS ───
@@ -15,25 +14,11 @@ const techLogos: Record<string, string> = {
   "Java Multihilo": "https://cdn.simpleicons.org/openjdk/white",
   "C++": "https://cdn.simpleicons.org/cplusplus/00599C",
   "SQL Avanzado": "https://cdn.simpleicons.org/postgresql/4169E1",
-  "Ethical Hacking": "https://cdn.simpleicons.org/kalilinux/557C94",
-  "Cloud Security": "https://cdn.simpleicons.org/cloudflare/F38020",
-  "SIEM/SOAR": "https://cdn.simpleicons.org/splunk/000000/white",
   "BBDD Avanzado": "https://cdn.simpleicons.org/postgresql/4169E1",
 };
 
 // ─── DATOS ───
 const educationData = [
-  {
-    period: "2026 - Actualidad",
-    title: "Especialidad en Ciberseguridad",
-    institution: "IES Zaidin Vergeles",
-    link: "https://www.ieszaidinvergeles.org/",
-    description: "Formación en seguridad ofensiva (Red Team) y defensiva (Blue Team). Auditoría de sistemas y análisis forense.",
-    tags: ["Ethical Hacking", "SIEM/SOAR", "Cloud Security"],
-    icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
-    color: "emerald",
-    gradient: "from-emerald-500/20 to-teal-500/5"
-  },
   {
     period: "2024 - 2026",
     title: "Desarrollo de Aplicaciones Web",
@@ -55,30 +40,6 @@ const educationData = [
     icon: <Smartphone className="w-6 h-6 text-purple-400" />,
     color: "purple",
     gradient: "from-purple-500/20 to-pink-500/5"
-  }
-];
-
-const certificationsData = [
-  {
-    year: "2024",
-    title: "AWS Solutions Architect",
-    issuer: "Amazon Web Services",
-    icon: <Cloud className="w-5 h-5 text-yellow-400" />,
-    color: "group-hover:shadow-yellow-500/20 group-hover:border-yellow-500/30"
-  },
-  {
-    year: "2023",
-    title: "Google Data Analytics",
-    issuer: "Google Professional",
-    icon: <BarChart className="w-5 h-5 text-blue-400" />,
-    color: "group-hover:shadow-blue-500/20 group-hover:border-blue-500/30"
-  },
-  {
-    year: "2022",
-    title: "Meta Front-End Dev",
-    issuer: "Meta (Coursera)",
-    icon: <FileCode className="w-5 h-5 text-cyan-400" />,
-    color: "group-hover:shadow-cyan-500/20 group-hover:border-cyan-500/30"
   }
 ];
 
@@ -112,16 +73,6 @@ const textRevealVariants: Variants = {
     opacity: 1, 
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
   }
 };
 
@@ -299,52 +250,6 @@ export function Educacion() {
           })}
         </div>
 
-        {/* ─── CERTIFICACIONES ─── */}
-        <div className="max-w-6xl mx-auto relative">
-           <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl -z-10" />
-           
-           <motion.div 
-             variants={containerVariants}
-             initial="hidden"
-             whileInView="visible"
-             viewport={{ once: true, margin: "-50px" }}
-             className="bg-[#0e1625]/80 border border-slate-800/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl"
-           >
-              <div className="flex items-center gap-3 mb-8">
-                 <div className="p-2 bg-yellow-500/10 rounded-lg">
-                    <Award className="text-yellow-400 w-6 h-6" />
-                 </div>
-                 <h3 className="text-2xl font-bold text-white">Certificaciones & Credenciales</h3>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {certificationsData.map((cert, i) => (
-                  <motion.div
-                    key={i}
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
-                    }}
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    className={`group relative p-5 rounded-xl bg-slate-900/50 border border-slate-800 transition-all duration-300 ${cert.color} cursor-default overflow-hidden`}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    <div className="relative z-10">
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="p-2 rounded-lg bg-[#0b1220] border border-slate-700 group-hover:border-slate-500 transition-colors">
-                           {cert.icon}
-                        </div>
-                        <span className="text-xs font-mono text-slate-500 bg-slate-800/50 px-2 py-1 rounded">{cert.year}</span>
-                      </div>
-                      <h4 className="text-white font-bold text-lg mb-1 group-hover:text-blue-300 transition-colors">{cert.title}</h4>
-                      <p className="text-xs text-slate-400 uppercase tracking-wide">{cert.issuer}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-           </motion.div>
-        </div>
 
       </div>
     </section>

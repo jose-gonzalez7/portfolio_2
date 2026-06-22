@@ -6,7 +6,6 @@ import { motion, useTransform, useMotionValue, useMotionTemplate } from "framer-
 const ArrowDownIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>;
 
 const RocketIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>;
-const GithubIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 4 3c-1.25.5-2.5 1-3 1.5 0 3 .15 4.5 1.5 4.5.3 1.5 0 2 .5 3.5 0 1 .5 2.5 1 3.5-1.5 0-3 1.5-3 3.5 0 1 .5 2 1.5 2 1.5 2 1.5 3.5 1.5 4.5v4"/></svg>;
 const LinkedinIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
 const MailIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
 const TerminalIcon = ({className}: {className?:string}) => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>;
@@ -15,13 +14,13 @@ const TerminalIcon = ({className}: {className?:string}) => <svg xmlns="http://ww
 const CodeBlockTypewriter = () => {
   const codeString = `const Developer = {
   name: 'Jose González',
-  role: 'Full Stack & Sec',
+  role: 'Full Stack Developer',
   skills: [
-    'Next.js', 'React',
-    'Node.js', 'AWS',
-    'Ethical Hacking'
+    'React 19', 'TypeScript',
+    'Node.js', 'PostgreSQL',
+    'AWS'
   ],
-  status: 'Ready to Deploy'
+  status: 'Production'
 };
 
 await Developer.init();`;
@@ -121,18 +120,6 @@ export function Hero() {
         {/* ─── COLUMNA IZQUIERDA: TEXTO DE ALTO IMPACTO ─── */}
         <div className="flex flex-col gap-8 text-center lg:text-left">
           
-          {/* Badge "Tech / Security" */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="mx-auto lg:mx-0 inline-flex items-center gap-2 w-fit rounded-lg border border-slate-700/50 bg-slate-800/50 text-slate-300 px-3 py-1.5 text-xs font-mono tracking-wide shadow-lg backdrop-blur-md">
-              <TerminalIcon className="text-emerald-400 w-3.5 h-3.5" />
-              <span className="text-emerald-400">sys_status:</span>
-              <span className="typing-effect">Online & Available</span>
-            </span>
-          </motion.div>
 
           <div className="space-y-4">
             <motion.h1 
@@ -161,13 +148,13 @@ export function Hero() {
             </motion.h1>
           </div>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-slate-400 max-w-xl mx-auto lg:mx-0 text-lg md:text-xl leading-relaxed font-light"
           >
-            Transformo ideas abstractas en <span className="text-white font-medium">arquitecturas seguras</span>. Especialista Full Stack obsesionado con el rendimiento, la escalabilidad y la ciberseguridad.
+            Construyo software <span className="text-white font-medium">robusto, escalable y seguro</span> de extremo a extremo. Responsable técnico único del MES que controla en tiempo real una línea de producción industrial crítica.
           </motion.p>
           
           {/* ─── BOTÓN ÚNICO INCREÍBLE ─── */}
@@ -177,8 +164,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-5 pt-8 justify-center lg:justify-start"
           >
-             {/* Este enlace apunta a la siguiente sección (ajusta #stack o el id que prefieras) */}
-             <a href="#experiencia" className="group relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 w-full sm:w-auto">
+             {/* Enlace a la sección THIELMANN Case Study */}
+             <a href="#thielmann" className="group relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 w-full sm:w-auto">
                {/* Animación del borde giratorio */}
                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                
@@ -193,13 +180,12 @@ export function Hero() {
           </motion.div>
           
            {/* REDES */}
-           <motion.div 
+           <motion.div
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ duration: 0.5, delay: 0.5 }}
              className="flex items-center justify-center lg:justify-start gap-4 pt-6 border-t border-slate-800/50 mt-4"
            >
-             <SocialLink icon={<GithubIcon />} label="GitHub" href="https://github.com/jose-gonzalez7" />
              <SocialLink icon={<LinkedinIcon />} label="LinkedIn" href="https://www.linkedin.com/in/jgonzalezroman-dev/" />
              <SocialLink icon={<MailIcon />} label="Email" href="mailto:jgonzalezroman7@gmail.com" />
           </motion.div>
@@ -260,9 +246,8 @@ function TiltCard({ mouseX, mouseY }: { mouseX: any, mouseY: any }) {
       {/* Footer Ventana */}
       <div className="px-5 py-3 border-t border-slate-800 bg-[#0b1220]/50 flex justify-between items-center rounded-b-2xl">
          <div className="flex gap-4 text-[10px] text-slate-500 font-mono">
-            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Compilation: Success</span>
+            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Status: Ready</span>
          </div>
-         <span className="text-[10px] text-purple-400 font-mono">99% Secure</span>
       </div>
     </motion.div>
   );

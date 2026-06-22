@@ -6,6 +6,7 @@ import { Experiencia } from "../componentes/secciones/Experiencia"
 import { SectionTransition } from "../componentes/layout/SectionTransition"
 import { Tecnologias } from "../componentes/secciones/Tecnologias"
 import { Contacto } from "../componentes/secciones/Contacto"
+import { ThielmannCaseStudy } from "../componentes/secciones/ThielmannCaseStudy"
 
 export function Home() {
   return (
@@ -14,9 +15,14 @@ export function Home() {
       <Navbar />
 
       <main className="flex-1 overflow-y-auto scroll-smooth">
-        
+
         {/* El Hero suele ir sin transición externa porque carga al inicio */}
         <Hero />
+
+        {/* Sección THIELMANN Case Study */}
+        <SectionTransition>
+          <ThielmannCaseStudy />
+        </SectionTransition>
 
         {/* Envolvemos Experiencia */}
         <SectionTransition>

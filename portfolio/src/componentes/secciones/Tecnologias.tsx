@@ -60,38 +60,37 @@ const BrandIcons: Record<string, React.ReactNode> = {
 // ─── DEFINICIÓN DEL ARSENAL TECNOLÓGICO ───
 const techStack = [
   {
-    category: "Core & Frontend Moderno",
-    description: "Experiencias de usuario rápidas, reactivas y tipadas.",
+    category: "Frontend",
+    description: "React 19, TypeScript, Next.js, Tailwind CSS, Framer Motion.",
     icon: <Layout className="w-6 h-6 text-blue-400" />,
     items: [
-      { name: "Next.js 15", color: "hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:border-white/80" },
       { name: "React", color: "hover:shadow-[0_0_20px_rgba(97,218,251,0.3)] hover:border-[#61DAFB]/80" },
       { name: "TypeScript", color: "hover:shadow-[0_0_20px_rgba(49,120,198,0.3)] hover:border-[#3178C6]/80" },
+      { name: "Next.js 15", color: "hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:border-white/80" },
       { name: "Tailwind", color: "hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:border-[#06B6D4]/80" },
       { name: "Framer", color: "hover:shadow-[0_0_20px_rgba(0,85,255,0.3)] hover:border-[#0055FF]/80" }
     ]
   },
   {
-    category: "Backend & Arquitectura Segura",
-    description: "Lógica de negocio robusta, escalable y protegida.",
+    category: "Backend",
+    description: "Node.js, Prisma, PostgreSQL, Express.",
     icon: <Server className="w-6 h-6 text-emerald-400" />,
     items: [
       { name: "Node.js", color: "hover:shadow-[0_0_20px_rgba(51,153,51,0.3)] hover:border-[#339933]/80" },
-      { name: "PostgreSQL", color: "hover:shadow-[0_0_20px_rgba(65,105,225,0.3)] hover:border-[#4169E1]/80" },
       { name: "Prisma", color: "hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:border-white/80" },
+      { name: "PostgreSQL", color: "hover:shadow-[0_0_20px_rgba(65,105,225,0.3)] hover:border-[#4169E1]/80" },
       { name: "Java", color: "hover:shadow-[0_0_20px_rgba(248,0,0,0.3)] hover:border-red-400/80" },
       { name: "Auth / JWT", color: "hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:border-pink-500/80" }
     ]
   },
   {
-    category: "DevOps & Ciberseguridad",
-    description: "Despliegue continuo, contenedores y auditoría.",
+    category: "Infraestructura",
+    description: "AWS (ECS Fargate, RDS, S3, CloudFront, WAF, Route 53), Docker.",
     icon: <ShieldCheck className="w-6 h-6 text-orange-400" />,
     items: [
       { name: "Docker", color: "hover:shadow-[0_0_20px_rgba(36,150,237,0.3)] hover:border-[#2496ED]/80" },
       { name: "AWS", color: "hover:shadow-[0_0_20px_rgba(255,153,0,0.3)] hover:border-[#FF9900]/80" },
       { name: "Linux", color: "hover:shadow-[0_0_20px_rgba(255,255,0,0.3)] hover:border-yellow-200/80" },
-      { name: "Kali Linux", color: "hover:shadow-[0_0_20px_rgba(85,124,148,0.3)] hover:border-[#557C94]/80" },
       { name: "Git", color: "hover:shadow-[0_0_20px_rgba(240,80,50,0.3)] hover:border-[#F05032]/80" }
     ]
   }

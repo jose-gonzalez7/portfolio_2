@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
 // FIX: Importamos 'type Variants' para solucionar el error de tipos
 import { AnimatePresence, motion, useScroll, useMotionValueEvent, type Variants } from "framer-motion"
-import { Download, Menu, X, Terminal, Github, Linkedin, Mail } from "lucide-react"
+import { Download, Menu, X, Terminal, Linkedin, Mail } from "lucide-react"
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
-    { label: "Experiencia", href: "#experiencia" },
+  { label: "THIELMANN", href: "#thielmann" },
+  { label: "Experiencia", href: "#experiencia" },
   { label: "Educación", href: "#educacion" },
   { label: "Tecnologías", href: "#tecnologias" },
   { label: "Contacto", href: "#contacto" },
@@ -286,7 +287,6 @@ export function Navbar() {
                  </a>
 
                  <div className="flex justify-center gap-8 border-t border-white/10 pt-8">
-                    <a href="https://github.com/jose-gonzalez7" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Github size={24} /></a>
                     <a href="https://www.linkedin.com/in/jgonzalezroman-dev/" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors"><Linkedin size={24} /></a>
                     <a href="mailto:jgonzalezroman7@gmail.com" className="text-slate-400 hover:text-blue-400 transition-colors"><Mail size={24} /></a>
                  </div>

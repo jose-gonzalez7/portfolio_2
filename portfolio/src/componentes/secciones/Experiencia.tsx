@@ -21,7 +21,7 @@ const BrandIcons: Record<string, React.ReactNode> = {
 const experienceData = [
   {
     period: "Nov 2025 - Actualidad",
-    title: "Full Stack Architect & Developer",
+    title: "Full Stack Developer",
     company: "THIELMANN",
     link: "https://www.thielmann.com/en/",
     description: [
@@ -40,17 +40,17 @@ const experienceData = [
     company: "Radiokable",
     link: "https://radiokable.net/",
     description: [
-      "Desarrollo de pipelines de automatización inteligente para optimizar flujos de trabajo internos.",
-      "Implementación de agentes de IA para el análisis predictivo y gestión de datos masivos.",
-      "Integración de APIs de terceros para centralizar la monitorización de sistemas de red."
+      "Desarrollo de RK Utility: app móvil en Flutter publicada en App Store y Google Play.",
+      "Backend con Node.js + Express + PostgreSQL para gestión de datos y APIs.",
+      "Construcción de app web PHP + MySQL para sistema de inspecciones técnicas."
     ],
-    tags: ["Python", "IA", "Docker", "Cloud"],
+    tags: ["Flutter", "Node.js", "PostgreSQL", "PHP"],
     icon: <Bot className="w-6 h-6 text-emerald-400" />,
     color: "emerald",
-    active: true
+    active: false
   },
   {
-    period: "2024",
+    period: "Abr - Jun 2024",
     title: "Software Developer",
     company: "SM Services",
     link: "https://sm-services.es/?lang=en",
