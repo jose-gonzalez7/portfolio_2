@@ -9,21 +9,10 @@ interface Props {
 export function SectionTransition({ children, className = "" }: Props) {
   return (
     <motion.div
-      // Estado inicial (Invisible y desplazado 50px abajo)
-      initial={{ opacity: 0, y: 50 }}
-      
-      // Cuando entra en la pantalla (Visible y en su sitio)
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      
-      // Configuración del "disparador"
-      viewport={{ 
-        once: true,      // Solo se anima una vez (no desaparece al subir)
-        margin: "-100px" // Se activa cuando el elemento entra 100px en la pantalla
-      }}
-      
-      // Duración y suavidad
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={className}
     >
       {children}

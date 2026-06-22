@@ -11,7 +11,7 @@ import { ThielmannCaseStudy } from "../componentes/secciones/ThielmannCaseStudy"
 export function Home() {
   return (
     
-    <div className="h-[100dvh] flex flex-col bg-[#0b1220] overflow-hidden">
+    <div className="h-[100dvh] flex flex-col bg-[#09090b] overflow-hidden">
       <Navbar />
 
       <main className="flex-1 overflow-y-auto scroll-smooth">
