@@ -26,29 +26,29 @@ export function Hero() {
         </motion.p>
 
         {/* Main headline */}
-        <div className="mb-12">
+        <h1 className="mb-12">
           <div className="overflow-hidden">
-            <motion.h1
+            <motion.span
               initial={{ y: '110%' }}
               animate={{ y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(2rem,11vw,9rem)] font-black leading-[0.88] tracking-tighter text-white uppercase"
+              className="block text-[clamp(2rem,11vw,9rem)] font-black leading-[0.88] tracking-tighter text-white uppercase"
             >
               Full Stack
-            </motion.h1>
+            </motion.span>
           </div>
           <div className="overflow-hidden">
-            <motion.h1
+            <motion.span
               initial={{ y: '110%' }}
               animate={{ y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(2rem,11vw,9rem)] font-black leading-[0.88] tracking-tighter uppercase"
+              className="block text-[clamp(2rem,11vw,9rem)] font-black leading-[0.88] tracking-tighter uppercase"
               style={{ WebkitTextStroke: '2px rgba(255,255,255,0.18)', color: 'transparent' }}
             >
               Developer.
-            </motion.h1>
+            </motion.span>
           </div>
-        </div>
+        </h1>
 
         {/* Bottom row */}
         <motion.div

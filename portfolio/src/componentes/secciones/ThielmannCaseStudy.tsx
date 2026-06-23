@@ -122,7 +122,7 @@ export function ThielmannCaseStudy() {
 
         {/* El Reto */}
         <motion.div {...fadeUp} className="mb-24">
-          <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">El reto</p>
+          <h3 className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">El reto</h3>
           <div className="border-l border-white/10 pl-8 max-w-2xl space-y-4">
             <p className="text-zinc-300 text-base leading-relaxed">
               Una línea de producción industrial crítica de 120 puestos que necesitaba control,
@@ -141,7 +141,7 @@ export function ThielmannCaseStudy() {
 
         {/* Arquitectura */}
         <motion.div {...fadeUp} className="mb-24">
-          <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">Arquitectura</p>
+          <h3 className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">Arquitectura</h3>
           <div className="divide-y divide-white/5">
             {architectureLayers.map((layer, i) => (
               <motion.div
@@ -166,7 +166,7 @@ export function ThielmannCaseStudy() {
 
         {/* Funcionalidad */}
         <motion.div {...fadeUp} className="mb-24">
-          <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">Lo que hace el sistema</p>
+          <h3 className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">Lo que hace el sistema</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8">
             {features.map((f, i) => (
               <motion.div
@@ -187,7 +187,7 @@ export function ThielmannCaseStudy() {
 
         {/* Seguridad */}
         <motion.div {...fadeUp} className="mb-24">
-          <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">Seguridad en producción</p>
+          <h3 className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">Seguridad en producción</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
             {securityItems.map((s, i) => (
               <motion.div
@@ -214,7 +214,7 @@ export function ThielmannCaseStudy() {
 
         {/* Stack */}
         <motion.div {...fadeUp}>
-          <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-6">Stack</p>
+          <h3 className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-6">Stack</h3>
           <div className="flex flex-wrap gap-3">
             {stack.map((tech) => (
               <span
