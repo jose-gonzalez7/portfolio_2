@@ -5,7 +5,6 @@ const metrics = [
   { number: '120', label: 'Puestos de trabajo' },
   { number: '40',  label: 'Usuarios diarios' },
   { number: '15',  label: 'Tablets en planta' },
-  { number: '1',   label: 'Solo' },
 ];
 
 const architectureLayers = [
@@ -49,10 +48,10 @@ const features = [
 ];
 
 const securityItems = [
-  { title: 'JWT en cookies httpOnly',      desc: 'Protección XSS con same-site' },
+  { title: 'JWT en cookies httpOnly',      desc: 'httpOnly anti-exfiltración XSS · SameSite anti-CSRF' },
   { title: 'RBAC',                         desc: 'Control granular por rol' },
   { title: 'Device fingerprinting',        desc: 'Validación de tablets compartidas' },
-  { title: 'AWS WAF',                      desc: 'OWASP Top 10 en capa de red' },
+  { title: 'AWS WAF',                      desc: 'Mitigación OWASP Top 10 en el edge' },
   { title: 'Auditorías periódicas',        desc: 'Infra, backend y frontends' },
   { title: 'Defensa en profundidad',       desc: 'Mínimo privilegio en cada capa' },
 ];
@@ -99,7 +98,7 @@ export function ThielmannCaseStudy() {
             >
               THIELMANN <ExternalLink size={12} />
             </a>{' '}
-            — 120 puestos de trabajo. De cero a producción. Solo.
+            — 120 puestos de trabajo. De cero a producción, end-to-end.
           </p>
         </motion.div>
 
@@ -109,7 +108,7 @@ export function ThielmannCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-8 mb-16 md:mb-24"
+          className="grid grid-cols-3 gap-x-6 md:gap-x-10 gap-y-8 mb-16 md:mb-24"
         >
           {metrics.map((m) => (
             <div key={m.number}>
@@ -126,8 +125,9 @@ export function ThielmannCaseStudy() {
           <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em] mb-8">El reto</p>
           <div className="border-l border-white/10 pl-8 max-w-2xl space-y-4">
             <p className="text-zinc-300 text-base leading-relaxed">
-              Línea de producción industrial crítica de 120 puestos sin ningún sistema de gestión.
-              Cero digitalización. Cero trazabilidad. Cero visibilidad en tiempo real.
+              Una línea de producción industrial crítica de 120 puestos que necesitaba control,
+              trazabilidad y visibilidad en tiempo real. El reto: diseñar y construir el MES que
+              hoy la gestiona de extremo a extremo.
             </p>
             <p className="text-zinc-500 text-sm leading-relaxed">
               40 personas dependen del sistema a diario — operarios a 3 turnos y equipos de calidad,

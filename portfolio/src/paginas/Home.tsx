@@ -5,7 +5,6 @@ import { Footer } from "../componentes/layout/Footer"
 import { Experiencia } from "../componentes/secciones/Experiencia"
 import { SectionTransition } from "../componentes/layout/SectionTransition"
 import { Tecnologias } from "../componentes/secciones/Tecnologias"
-import { Contacto } from "../componentes/secciones/Contacto"
 import { ThielmannCaseStudy } from "../componentes/secciones/ThielmannCaseStudy"
 
 export function Home() {
@@ -40,10 +39,6 @@ export function Home() {
           <Tecnologias />
         </SectionTransition>
 
-        <SectionTransition>
-          <Contacto />
-        </SectionTransition>
-        
       </main>
 
       <Footer />

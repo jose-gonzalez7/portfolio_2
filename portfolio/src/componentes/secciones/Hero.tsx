@@ -4,7 +4,6 @@ const metrics = [
   { number: '120', label: 'Puestos de trabajo' },
   { number: '40',  label: 'Usuarios diarios' },
   { number: '15',  label: 'Tablets en planta' },
-  { number: '1',   label: 'Solo' },
 ];
 
 export function Hero() {
@@ -78,7 +77,7 @@ export function Hero() {
           </div>
 
           {/* Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-6">
+          <div className="grid grid-cols-3 gap-x-6 md:gap-x-10 gap-y-6">
             {metrics.map((m) => (
               <div key={m.number}>
                 <div className="text-4xl md:text-5xl font-black text-white leading-none tabular-nums">

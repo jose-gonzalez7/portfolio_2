@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { AnimatePresence, motion, useScroll, useMotionValueEvent, type Variants } from "framer-motion"
+import { AnimatePresence, motion, type Variants } from "framer-motion"
 import { X, Menu } from "lucide-react"
 
 const navLinks = [
@@ -8,7 +8,6 @@ const navLinks = [
   { label: "Experiencia", href: "#experiencia" },
   { label: "Educación",   href: "#educacion" },
   { label: "Tecnologías", href: "#tecnologias" },
-  { label: "Contacto",    href: "#contacto" },
 ]
 
 export function Navbar() {
@@ -17,42 +16,52 @@ export function Navbar() {
   const [isScrolled, setIsScrolled]       = useState(false)
   const [visible, setVisible]             = useState(true)
 
-  const { scrollY } = useScroll()
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0
-    setIsScrolled(latest > 50)
-    setVisible(!(latest > previous && latest > 150))
-  })
-
+  // El scroll ocurre dentro de <main> (overflow-y-auto), NO en window.
+  // Por eso escuchamos el contenedor y detectamos la sección activa
+  // con un IntersectionObserver relativo a ese contenedor.
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
+    const container = document.querySelector<HTMLElement>("main")
+    if (!container) return
+
+    let lastY = container.scrollTop
+    const onScroll = () => {
+      const y = container.scrollTop
+      setIsScrolled(y > 50)
+      setVisible(!(y > lastY && y > 150))
+      lastY = y
     }
+    container.addEventListener("scroll", onScroll, { passive: true })
 
-    const handleScroll = () => {
-      const trigger = window.scrollY + window.innerHeight * 0.3
+    const sections = navLinks
+      .map((link) => document.getElementById(link.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null)
 
-      if (window.scrollY < 50) { setActiveSection("Inicio"); return }
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
-        setActiveSection("Contacto"); return
-      }
-      for (const link of navLinks) {
-        const el = document.getElementById(link.href.substring(1))
-        if (el) {
-          const { offsetTop, offsetHeight } = el
-          if (trigger >= offsetTop && trigger < offsetTop + offsetHeight) {
-            setActiveSection(link.label); break
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const link = navLinks.find((l) => l.href.slice(1) === entry.target.id)
+            if (link) setActiveSection(link.label)
           }
         }
-      }
-    }
+      },
+      { root: container, rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    )
+    sections.forEach((section) => observer.observe(section))
 
-    handleScroll()
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      container.removeEventListener("scroll", onScroll)
+      observer.disconnect()
+    }
+  }, [])
+
+  // Bloquear el scroll del contenedor mientras el menú móvil está abierto
+  useEffect(() => {
+    const container = document.querySelector<HTMLElement>("main")
+    if (container) container.style.overflow = isOpen ? "hidden" : ""
+    return () => {
+      if (container) container.style.overflow = ""
+    }
   }, [isOpen])
 
   const mobileMenuVars: Variants = {
@@ -117,12 +126,6 @@ export function Navbar() {
                 className="text-xs font-mono text-zinc-600 hover:text-white transition-colors uppercase tracking-widest"
               >
                 LinkedIn
-              </a>
-              <a
-                href="mailto:jgonzalezroman7@gmail.com"
-                className="text-xs font-mono text-zinc-600 hover:text-white transition-colors uppercase tracking-widest"
-              >
-                Email
               </a>
             </div>
 
@@ -190,9 +193,6 @@ export function Navbar() {
             >
               <a href="https://www.linkedin.com/in/jgonzalezroman-dev/" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-zinc-500 hover:text-white transition-colors uppercase tracking-widest">
                 LinkedIn
-              </a>
-              <a href="mailto:jgonzalezroman7@gmail.com" className="text-xs font-mono text-zinc-500 hover:text-white transition-colors uppercase tracking-widest">
-                Email
               </a>
             </motion.div>
           </motion.div>

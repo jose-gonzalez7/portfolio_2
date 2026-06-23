@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react';
 
 const education = [
   {
-    period: '2024 — 2026',
+    period: '2025 — 2026',
     title: 'Desarrollo de Aplicaciones Web',
     abbr: 'DAW',
     institution: 'IES Alonso Cano',
@@ -17,7 +17,7 @@ const education = [
     abbr: 'DAM',
     institution: 'CES Cristo Rey',
     link: 'https://cescristorey.com/',
-    description: 'Fundamentos de desarrollo de software: gestión de memoria con C++ y arquitecturas robustas y concurrentes con Java (multithreading), además de diseño de bases de datos.',
+    description: 'Inicié mi camino dominando la gestión de memoria con C++, para luego especializarme en arquitecturas robustas y programación concurrente con Java.',
     tags: ['C++', 'Java', 'PostgreSQL'],
   },
 ];
