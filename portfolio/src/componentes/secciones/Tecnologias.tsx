@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { ssr } from '../../utils/ssr';
 
 const groups = [
   {
@@ -30,7 +31,7 @@ export function Tecnologias() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={ssr ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -54,7 +55,7 @@ export function Tecnologias() {
         {groups.map((group, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 16 }}
+            initial={ssr ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.07 }}

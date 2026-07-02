@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ssr } from "../../utils/ssr";
 
 const metrics = [
   { number: '120', label: 'Puestos de trabajo' },
@@ -15,11 +16,21 @@ export function Hero() {
       {/* Main content */}
       <div className="flex-1 flex flex-col justify-center">
 
-        {/* Small label */}
+        {/* Name — visible para SEO y UX */}
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={ssr ? { opacity: 1 } : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+          className="text-xs font-mono text-zinc-400 tracking-[0.15em] mb-2"
+        >
+          José Antonio González Román
+        </motion.p>
+
+        {/* Role label */}
+        <motion.p
+          initial={ssr ? { opacity: 1 } : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.25em] mb-10"
         >
           Full Stack Developer · React · Node.js · AWS
@@ -29,7 +40,7 @@ export function Hero() {
         <h1 className="mb-12">
           <div className="overflow-hidden">
             <motion.span
-              initial={{ y: '110%' }}
+              initial={ssr ? { y: 0 } : { y: '110%' }}
               animate={{ y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="block text-[clamp(2rem,11vw,9rem)] font-black leading-[0.88] tracking-tighter text-white uppercase"
@@ -39,7 +50,7 @@ export function Hero() {
           </div>
           <div className="overflow-hidden">
             <motion.span
-              initial={{ y: '110%' }}
+              initial={ssr ? { y: 0 } : { y: '110%' }}
               animate={{ y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="block text-[clamp(2rem,11vw,9rem)] font-black leading-[0.88] tracking-tighter uppercase"
@@ -52,7 +63,7 @@ export function Hero() {
 
         {/* Bottom row */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={ssr ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex flex-col md:flex-row md:items-end justify-between gap-10"
@@ -94,7 +105,7 @@ export function Hero() {
 
       {/* Bottom line */}
       <motion.div
-        initial={{ scaleX: 0 }}
+        initial={ssr ? { scaleX: 1 } : { scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
         style={{ transformOrigin: 'left' }}

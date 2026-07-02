@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { ssr } from '../../utils/ssr';
 
 const metrics = [
   { number: '120', label: 'Puestos de trabajo' },
@@ -59,7 +60,7 @@ const securityItems = [
 const stack = ['React 19', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'AWS', 'ECS Fargate', 'S3', 'CloudFront', 'WAF', 'Route 53', 'Docker'];
 
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: ssr ? false as const : { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.5, ease: 'easeOut' as const },
@@ -104,7 +105,7 @@ export function ThielmannCaseStudy() {
 
         {/* Metrics */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={ssr ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -146,7 +147,7 @@ export function ThielmannCaseStudy() {
             {architectureLayers.map((layer, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={ssr ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.07, ease: 'easeOut' }}
@@ -171,7 +172,7 @@ export function ThielmannCaseStudy() {
             {features.map((f, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0 }}
+                initial={ssr ? false : { opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -192,7 +193,7 @@ export function ThielmannCaseStudy() {
             {securityItems.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -12 }}
+                initial={ssr ? false : { opacity: 0, x: -12 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
