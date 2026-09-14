@@ -8,7 +8,7 @@ const groups = [
   },
   {
     label: 'Backend',
-    items: ['Node.js', 'Prisma', 'PostgreSQL', 'Express', 'Python'],
+    items: ['Node.js', 'Prisma', 'PostgreSQL', 'MySQL', 'Express', 'Python'],
   },
   {
     label: 'Infraestructura',
@@ -19,8 +19,12 @@ const groups = [
     items: ['JWT httpOnly', 'RBAC', 'Device Fingerprinting', 'AWS WAF', 'OWASP Top 10'],
   },
   {
+    label: 'Testing / QA',
+    items: ['Cypress', 'Postman'],
+  },
+  {
     label: 'Herramientas',
-    items: ['Git', 'Linux', 'Flutter', 'PHP'],
+    items: ['Git', 'Linux', 'Flutter', 'PHP', 'Java'],
   },
 ];
 

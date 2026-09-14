@@ -4,7 +4,7 @@ import { ssr } from '../../utils/ssr';
 
 const jobs = [
   {
-    period: 'Nov 2025 — Actualidad',
+    period: 'Nov 2025 — Actualidad · Autónomo',
     title: 'Full Stack Developer',
     company: 'THIELMANN',
     link: 'https://www.thielmann.com/en/',
@@ -17,13 +17,13 @@ const jobs = [
     stack: ['React 19', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'AWS', 'Docker'],
   },
   {
-    period: 'Feb — May 2026 · Prácticas',
+    period: 'Sep 2026 — Actualidad · Jornada completa',
     title: 'Full Stack Developer',
     company: 'Radiokable',
     link: 'https://radiokable.net/',
-    active: false,
+    active: true,
     bullets: [
-      'Prácticas de desarrollo full-stack, compaginadas en paralelo con mi proyecto en THIELMANN.',
+      'Incorporado a jornada completa desde septiembre de 2026, tras un periodo previo de prácticas (feb — may 2026). Desarrollo full-stack de producto, en paralelo con mi trabajo como autónomo.',
       'RK Utility: app móvil en Flutter con backend Node.js + Express sobre PostgreSQL, que ofrece utilidades a los clientes de Radiokable y refuerza la marca. Publicada en App Store y Google Play, desplegada en servidor propio.',
       'Aplicación web interna en PHP + MySQL que centraliza el mantenimiento de inspecciones en una única herramienta integrada con el sistema interno.',
     ],
